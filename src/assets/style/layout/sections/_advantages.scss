@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+#advantages {
+    position: relative;
+
+    &-bg {
+        background-color: #fbfbfc;
+        bottom: 0;
+        left: 50%;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .content {
+
+        .col {
+
+            .number {
+                font-size: 36px;
+            }
+
+            .line {
+
+            }
+
+            .desc {
+               color: map-get($colors, "c_dgo");
+
+                /* Нужно вынести в отдельный стиль и из about убрать */
+                p {
+                    font-family: 'PT Sans', sans-serif;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: 400;
+                    line-height: 20px;
+                }
+            }
+
+            &.col-1{
+
+            }
+
+            &.col-2{
+
+            }
+
+            &.col-3{
+
+            }
+
+            &.col-4{
+
+            }
+        }
+    }
+}

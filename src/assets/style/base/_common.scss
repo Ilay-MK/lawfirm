@@ -27,6 +27,7 @@ html {
 }
 
 body {
+    color: map-get($colors, "c_dg");
     font-family: 'PT Serif', serif;
     font-size: 14px;
     font-weight: 400;
@@ -90,7 +91,12 @@ h3,
 h4,
 h5,
 h6 {
+    font-weight: 400;
+}
 
+section.page section {
+    /*padding: 100px 0;*/
+    padding: 93px 0;
 }
 
 // Extras

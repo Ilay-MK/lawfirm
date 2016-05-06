@@ -40,13 +40,10 @@ height: 574px; /*TEMP*/
 
     .left {
 
-        .vLine {
-            background-color: map-get($colors, "c_b");
+        .line-v {
             bottom: -13px; /*0*/
-            height: 256px;
             left: 55px;
             position: absolute;
-            width: 1px;
         }
 
         h3 {

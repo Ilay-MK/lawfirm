@@ -1,0 +1,273 @@
+@charset "UTF-8";
+
+#header {
+    @extend %bg-cover;
+    background-image: url(../img/header/carousel/1.jpg);
+    /*letter-spacing: 1px;*/
+    position: relative;
+
+    #side-right {
+        left: 3px;
+        position: relative;
+        top: 39px;
+        transform: rotate(-90deg);
+
+        a {
+            @extend %font-links;
+            position: absolute;
+            /*writing-mode: vertical-lr;*/
+
+            &:hover {
+                color: map-get($colors, "c_wa");
+            }
+
+            &:nth-child(2) {
+                right: 90px;
+            }
+        }
+    }
+
+    .navbar {
+        margin-bottom: 56px;
+        padding-top: 25px; /*30px*/
+
+        &-toggle {
+
+            .icon-bar {
+                background: map-get($colors, "c_b");
+            }
+        }
+
+        .navbar-brand {
+            color: map-get($colors, "c_b");
+            font-size: 24px;
+            /*font-weight: 400;*/
+            /*padding: 10px 15px;*/
+            /*line-height: 0.5em;*/
+            letter-spacing: normal;
+            text-transform: none;
+        }
+
+        .nav {
+            margin-left: 14px;
+
+            li {
+                margin-top: 4px;
+
+                a {
+                    @extend %font-links;
+                    padding: 15px 19px;
+
+                    &:hover {
+                        color: map-get($colors, "c_wa");
+                        background-color: transparent;
+                        background: none;
+                    }
+
+                    &:focus {
+                        background-color: transparent;
+                        outline: 0px solid transparent;
+                        outline: none;
+                    }
+                }
+            }
+        }
+
+        .languages {
+
+            li {
+
+                &.divider {
+                    background-color: #A0906F;
+                    margin-top: 18px;
+                    padding-top: 11px;
+                    padding-bottom: 11px;
+                    width: 1px;
+                }
+
+                a {
+                    color: map-get($colors, "c_w");
+                    padding: 15px;
+
+                    &.active {
+                        color: map-get($colors, "c_wa");
+                    }
+                    &:hover {
+                        color: map-get($colors, "c_wa");
+                    }
+                }
+            }
+        }
+    }
+
+    .carousel {
+        min-height: 472px;
+
+        &-pagination {
+            margin: 0 -1.25px;
+
+            &-label {
+                color: map-get($colors, "c_wa");
+                border-bottom: 1px solid map-get($colors, "c_b");
+                font-size: 30px;
+                padding-bottom: 6px;
+                text-align: center;
+                width: 70px;
+
+                span {
+                    color: map-get($colors, "c_w");
+                    font-size: 42px;
+                }
+            }
+
+            .carousel-controls {
+                font-size: 29px;
+                margin-top: 17px;
+                position: relative;
+                overflow: hidden;
+                padding: 10px 0;
+
+                a {
+                    color:map-get($colors, "c_w");
+                    padding: 9px;
+
+                    p {
+                        margin: 0;
+
+                        &.chevron {
+                            /*@extend %bg-cover;*/
+                            @extend %transition300ease;
+                            background-repeat: no-repeat;
+                            /*background-image: url(../img/header/carousel/cntrls/png/my/ctrls.png);*/
+                            background-position: 0 0;
+                            background-size: 100% 100%;
+                            height: 18px;
+                            width: 9px;
+
+                            &-left {
+                                background-image: url(../img/header/carousel/cntrls/png/cntrls_left@2x.png);
+                                /*background-position: 0 0;*/
+                            }
+                            &-right {
+                                background-image: url(../img/header/carousel/cntrls/png/cntrls_right@2x.png);
+                                /*background-position: -9px 0;*/
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        /* сделать спрайт и закинуть суда */
+                        .chevron {
+
+                            &-left {
+                                background-image: url(../img/header/carousel/cntrls/png/cntrls_left_hover@2x.png);
+                                /*background-position: 0 -18px;*/
+                            }
+                            &-right {
+                                background-image: url(../img/header/carousel/cntrls/png/cntrls_right_hover@2x.png);
+                                /*background-position: -9px -18px;*/
+                            }
+                        }
+                    }
+                }
+            }
+
+            ol.carousel-indicators {
+                bottom: auto;
+                left: auto;
+                margin: 6px 0 0 0;
+                overflow: hidden;
+                padding: 0 5px;
+                position: static;
+                width: auto;
+
+                li {
+                    @extend %transition300ease;
+                    background-color: map-get($colors, "c_wa");
+                    border: 0px solid transparent;
+                    border: none;
+                    border-radius: 0;
+                    cursor: auto;
+                    display: block;
+                    float: left;
+                    min-height: 100px;
+                    margin: 0 7px;
+                    width: 1px;
+
+                    &.active {
+                        background-color: map-get($colors, "c_b");
+                    }
+
+                    &:nth-child(1) {
+                        margin-top: 24px;
+                        height: 132px;
+                    }
+
+                    &:nth-child(2) {
+                        height: 256px;
+                    }
+
+                    &:nth-child(3) {
+                        margin-top: 36px;
+                        height: 159px;
+                    }
+
+                    &:nth-child(4) {
+                        margin-top: 12px;
+                        height: 82px;
+                    }
+                }
+            }
+
+            ol.carousel-indicators-vLines {
+                list-style: none;
+                margin: 0;
+                padding: 0 9px;
+
+                li {
+                    background-color:map-get($colors, "c_w");
+                    float: left;
+                    height: 100px;
+                    margin: 0 6px;
+                    width: 1px;
+                }
+            }
+        }
+
+        &-inner {
+            margin-top: 19px;
+            /*padding-left: 30px;*/
+
+            &-wrapper {
+                margin-left: 30px;
+            }
+
+            .item {
+
+                h1, .h1 {
+                    color:map-get($colors, "c_w");
+                    font-size: 44px;
+                    font-weight: 400;
+                    line-height: 54px;
+
+                }
+
+                .desc {
+                    font-family: 'PT Sans', sans-serif;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: rgba(255,255,255, 0.7);
+                    margin: 21px 0 43px 4px;
+
+                    p {
+
+                    }
+                }
+            }
+        }
+
+        .btn {
+            margin-left: 5px;
+        }
+    }
+}

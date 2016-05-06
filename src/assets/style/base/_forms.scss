@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+input {
+
+}
+
+button, .btn {
+
+}
+
+
+.btn {
+
+    &-main, &-main:link, &-main:visited , &-main:hover, &-main:active, &-main:focus {
+        @extend %font-links;
+        border: 1px solid map-get($colors, "c_b");
+        border-radius: 0;
+        padding: 14px 41px 13px 42px;
+        width: 189px;
+    }
+
+    &:hover {
+        background-color: map-get($colors, "c_bh");
+    }
+
+    &:active {
+        background-color: map-get($colors, "c_b");
+        box-shadow: none;
+    }
+
+    &:focus {
+        outline: 0px solid transparent;
+        outline: none;
+    }
+}
+
+fieldset {
+
+
+    legend {
+
+    }
+
+    label {
+
+    }
+}

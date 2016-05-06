@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+.inform {
+    background-color: map-get($colors, "c_w");
+    background-clip: padding-box;
+    /*border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .2);*/
+    border: none;
+    border-radius: 0;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, .4);
+    display: none;
+    letter-spacing: normal;
+    line-break: auto;
+    overflow: hidden;
+    min-height: 110px;
+    width: 270px;
+    padding: 22px 22px 15px;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    top: 100px;
+    white-space: normal;
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    z-index: 1060;
+
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #9B9B9B;
+
+    .icons {
+        text-align: center;
+        margin-right: 20px;
+
+        img {
+            max-height: 21px;
+            max-width: 22px;
+        }
+
+        .vLine {
+            background-color: map-get($colors, "c_b");
+            height: 40px;
+            margin: 10px auto 0;
+            width: 1px;
+        }
+    }
+    .content {
+        @extend %transition300ease;
+        margin-top: 3px;
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}

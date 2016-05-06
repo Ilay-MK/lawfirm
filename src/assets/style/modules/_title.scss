@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.title {
+    position: relative;
+
+    h2 {
+        font-size: 36px;
+        line-height: 48px;
+        margin: 0 0 0 -3px;
+    }
+
+    .desc {
+        color: map-get($colors, "c_b");
+        font-size: 16px;
+        margin-left: -1px;
+
+        p {
+            margin: 7px 0 36px;
+        }
+    }
+}

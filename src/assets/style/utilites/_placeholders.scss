@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+%bg-cover {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+	   -moz-background-size: cover;
+	     -o-background-size: cover;
+	        background-size: cover;
+}
+
+// --------------------------------------- //
+
+%transition300ease {
+    transition: All 300ms ease;
+}
+
+// --------------------------------------- //
+
+%font-links {
+    font-family: 'PT Sans', sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+
+    color: map-get($colors, "c_w");
+    font-size: 13px;
+    line-height: 20px;
+    padding: 15px 19px;
+    text-transform: uppercase;
+}

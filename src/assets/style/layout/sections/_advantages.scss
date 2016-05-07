@@ -14,7 +14,7 @@
     }
 
     .content {
-        padding: 53px 33px;
+        padding: 53px 0 53px 33px;
 
         .col {
 
@@ -67,7 +67,7 @@
             }
 
             &.col-2 {
-                margin: 24px 0 0 -16px;
+                margin: 24px 0 0 73px;
 
                 .line {
                     margin: 16px 0 25px;
@@ -75,7 +75,7 @@
             }
 
             &.col-3 {
-                margin-right: 10px;
+                margin-right: -14px;
                 margin-top: 9px;
                 text-align: right;
 
@@ -96,9 +96,10 @@
                 }
 
                 .desc {
+                    margin: 0 57px 20px 0;
 
                     p {
-                        margin: 0 24px 20px 0;
+
                     }
                 }
             }

@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+#advantages {
+    padding: 60px 0 0 0;
+    position: relative;
+
+    &-bg {
+        background-color: #fbfbfc;
+        bottom: 0;
+        left: calc(50% - 18px); /* 656px  50%*/
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .content {
+        padding: 53px 0 53px 33px;
+
+        .col {
+
+            .number {
+                font-size: 44px;
+                line-height: 54px;
+            }
+
+            .line {
+
+            }
+
+            .desc {
+               color: map-get($colors, "c_dgo");
+
+                /* Нужно вынести в отдельный стиль и из about убрать */
+                p {
+                    font-family: 'PT Sans', sans-serif;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: 400;
+                    line-height: 20px;
+                    margin: 0;
+                }
+            }
+
+            &.col-1 {
+
+                & > div {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                .number {
+                    line-height: 50px;
+                }
+
+                .line {
+                    margin: 1px 19px 0 14px;
+                }
+
+                .desc {
+
+                    p {
+                        /* margin-top: 17px; */
+                        position: relative;
+                        top: 10px;
+                    }
+                }
+            }
+
+            &.col-2 {
+                margin: 24px 0 0 73px;
+
+                .line {
+                    margin: 16px 0 25px;
+                }
+            }
+
+            &.col-3 {
+                margin-right: -14px;
+                margin-top: 9px;
+                text-align: right;
+
+                .line {
+                    margin: 16px 0 25px auto;
+                }
+            }
+
+            &.col-4 {
+                margin-top: 60px;
+                position: relative;
+                text-align: right;
+
+                .line-v {
+                    bottom: 79px; /*47px*/
+                    position: absolute;
+                    right: 23px;
+                }
+
+                .desc {
+                    margin: 0 57px 20px 0;
+
+                    p {
+
+                    }
+                }
+
+                .number {
+                    margin-top: 52px;
+                }
+            }
+        }
+    }
+}

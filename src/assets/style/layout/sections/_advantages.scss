@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 #advantages {
-    padding: 60px 0;
+    padding: 60px 0 0 0;
     position: relative;
 
     &-bg {
         background-color: #fbfbfc;
         bottom: 0;
-        left: 50%;
+        left: calc(50% - 18px); /* 656px  50%*/
         position: absolute;
         right: 0;
         top: 0;
@@ -90,9 +90,9 @@
                 text-align: right;
 
                 .line-v {
-                    bottom: 47px;
+                    bottom: 79px; /*47px*/
                     position: absolute;
-                    right: 21px;
+                    right: 23px;
                 }
 
                 .desc {
@@ -101,6 +101,10 @@
                     p {
 
                     }
+                }
+
+                .number {
+                    margin-top: 52px;
                 }
             }
         }

@@ -86,6 +86,24 @@ $(document).ready(function () {
         return false;
     } );
 
+    $('.teasers-paginators a').click(function () {
+        var target = $(this).attr("href");
+
+        /*$(".teasers").fadeOut();
+        $(target).fadeIn();*/
+
+        $(".teasers").stop().removeClass("animated animDur fadeInRight").animate({
+            opacity: 0
+        }, 700).css("display", "none");
+
+        /*$(target).toggle("slow");*/
+        $(target).addClass("animated animDur fadeInRight").animate({
+            opacity: 1
+        }, 700).css("display", "block");
+
+        return false;
+    });
+
     /*$(".lnk-inform").focusin(function () {
         var target = $(this).attr("href");
         $(target).toggle();

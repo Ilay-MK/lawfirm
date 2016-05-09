@@ -4,6 +4,7 @@
     @extend %bg-cover;
     background-image: url(../img/header/carousel/1.jpg);
     /*letter-spacing: 1px;*/
+    overflow: hidden;
     position: relative;
 
     #side-right {

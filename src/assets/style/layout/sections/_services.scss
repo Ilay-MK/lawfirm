@@ -2,4 +2,131 @@
 
 #services {
     background-color: map-get($colors, "c_w");
+    font-family: 'PT Sans', sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    position: relative;
+
+    &-bg {
+        background-color: #fbfbfc;
+        bottom: 0;
+        left: calc(50% + 215px);
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .colth {
+        &-1 {
+
+        }
+
+        &-2 {
+            float: right;
+            margin-right: -30px;
+        }
+
+        &-3 {
+            background-color: #F5F5F5;
+            float: right;
+            width: 370px;
+        }
+    }
+
+    .service-tab {
+        @extend %bg-cover;
+        display: table;
+        margin: 50px 0;
+
+        &#serv {
+
+            &-reg {
+                background-image: url(../img/services/reg.jpg);
+                height: 370px;
+                width: 370px;
+            }
+
+            &-lic {
+                background-image: url(../img/services/lic.jpg);
+                height: 330px;
+                width: 330px;
+            }
+
+            &-reo {
+                height: 300px;
+                background-image: url(../img/services/reo.jpg);
+                width: 330px;
+            }
+        }
+
+        .desc {
+            display: table-cell;
+            vertical-align: bottom;
+
+            h4 {
+                color: map-get($colors, "c_w");
+            }
+
+            p {
+                color: map-get($colors, "c_wa");
+            }
+        }
+    }
+
+    .bg-white {
+        background-color: #fff;
+        padding: 45px 42px 19px;
+    }
+
+    .title {
+
+        h3 {
+            text-align: right;
+        }
+    }
+
+    .teasers {
+
+        .teaser {
+
+            h5 {
+                font-size: 18px;
+                font-weight: 700;
+            }
+
+            p {
+                color: map-get($colors, "c_dgo");
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.36px;
+            }
+
+            .more, .more:link, .more:visited, .more:hover, .more:active, .more:focus {
+                color: map-get($colors, "c_b");
+                background-color: transparent;
+                margin-right: 20px;
+                padding: 0;
+                text-decoration: none;
+            }
+
+            .line {
+                display: inline-block;
+
+                /*
+                // .parent(".teaser").css("position","relative");
+                // .prev("a").css("bgc","white");
+                // без стиля .line-*
+                bottom: 14px;
+                left: 104px;
+                position: absolute;
+                right: 0;
+                */
+            }
+        }
+    }
 }

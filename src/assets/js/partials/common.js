@@ -111,20 +111,20 @@ $(document).ready(function () {
         var service = $(this).attr('id'),
             target = $(this).data('target');
 
-        $('.service').stop().animate({
+        $('.service').stop().removeClass("animated animDur fadeInRight").animate({
             opacity: 0
         }, 700).fadeOut();
         $('.blackout').stop().removeClass('rotateBlackout');
 
         $(this).find('.blackout').stop().addClass('rotateBlackout');
 
-        $(target).fadeIn().stop().animate({
+        $(target).stop().addClass("animated animDur fadeInRight").animate({
             opacity: 1
-        }, 700);
+        }, 700).fadeIn();
     });
 
     $('.servReturn').click(function () {
-        $(this).closest('.service').stop().animate({
+        $(this).closest('.service').stop().removeClass("animated animDur fadeInRight").animate({
             opacity: 0
         }, 700).fadeOut();
         $('.blackout').stop().removeClass('rotateBlackout');

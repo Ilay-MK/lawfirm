@@ -101,6 +101,9 @@ $(document).ready(function () {
             opacity: 1
         }, 700).css("display", "block");
 
+        $('.teasers-paginators a').removeClass('active');
+        $(this).addClass('active');
+
         return false;
     });
 

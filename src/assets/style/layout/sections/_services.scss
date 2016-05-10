@@ -198,8 +198,13 @@
             nav {
                 text-align: right;
 
-                a {
+                a:link, a:visited, a:hover, a:active, a:focus {
+                    color: map-get($colors, "c_dgo");
                     padding: 0 3px;
+
+                    &:hover, &.active {
+                        color: map-get($colors, "c_b");
+                    }
                 }
             }
         }

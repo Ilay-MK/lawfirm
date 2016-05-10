@@ -6,6 +6,7 @@
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
+    padding: 0;
     position: relative;
 
     &-bg {
@@ -32,7 +33,6 @@
         }
 
         &-3 {
-            background-color: #F5F5F5;
             float: right;
             width: 370px;
         }
@@ -40,82 +40,145 @@
 
     .service-tab {
         @extend %bg-cover;
+        @extend %transition300ease;
+        cursor: pointer;
+        font-family: 'PT Serif', serif;
         display: table;
+        overflow: hidden;
         margin: 50px 0;
+        position: relative;
+
+        .blackout {
+            @extend %transition300ease;
+            background-color: rgba(0,0,0, 0.3);
+        }
 
         &#serv {
 
             &-reg {
-                background-image: url(../img/services/reg.jpg);
+                background-image: url(../img/services/reg@2x.jpg);
                 height: 370px;
+                margin-top: 200px;
                 width: 370px;
+
+                &:hover {
+                    background-image: url(../img/services/hover/reg@2x.jpg);
+                }
             }
 
             &-lic {
-                background-image: url(../img/services/lic.jpg);
+                background-image: url(../img/services/lic@2x.jpg);
                 height: 330px;
+                margin-top: 100px;
                 width: 330px;
+
+                &:hover {
+                    background-image: url(../img/services/hover/lic@2x.jpg);
+                }
             }
 
             &-reo {
+                background-image: url(../img/services/reo@2x.jpg);
                 height: 300px;
-                background-image: url(../img/services/reo.jpg);
+                margin-bottom: 30px;
                 width: 330px;
+
+                &:hover {
+                    background-image: url(../img/services/hover/reo@2x.jpg);
+                }
             }
         }
 
         .desc {
+            @extend %transition300ease;
             display: table-cell;
+            padding: 28px 33px;
+            position: relative;
             vertical-align: bottom;
+
+            &:hover {
+                /*background-color: transparent;*/
+            }
 
             h4 {
                 color: map-get($colors, "c_w");
+                font-weight: 700;
+                line-height: 20px;
+                margin-bottom: 11px;
+                margin-left: -1px;
+
             }
 
             p {
-                color: map-get($colors, "c_wa");
+                color: map-get($colors, "c_wod");
+                line-height: 20px;
+                margin: 0;
             }
         }
     }
 
     .bg-white {
         background-color: #fff;
+        overflow: hidden;
         padding: 45px 42px 19px;
+        position: relative;
     }
 
     .title {
+        margin-top: 39px;
 
         h3 {
+            margin-bottom: 30px;
+            margin-top: 49px;
             text-align: right;
         }
     }
 
     .teasers {
+        @extend %transition300ease;
+        display: none;
+
+        &#teas-page {
+            &-1 {
+                display: block;
+            }
+        }
 
         .teaser {
+            margin: 0 0 58px;
+
+            &:last-child {
+                margin: 0;
+            }
 
             h5 {
-                font-size: 18px;
+                font-family: 'PT Serif', serif;
+                font-size: 14px;
                 font-weight: 700;
             }
 
             p {
                 color: map-get($colors, "c_dgo");
-                font-size: 12px;
-                line-height: 14px;
-                letter-spacing: 0.36px;
+                font-size: 14px;
+                line-height: 20px;
+                margin: 16px 0 11px;
             }
 
             .more, .more:link, .more:visited, .more:hover, .more:active, .more:focus {
-                color: map-get($colors, "c_b");
                 background-color: transparent;
-                margin-right: 20px;
+                color: map-get($colors, "c_b");
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0;
+                margin-right: 21px;
                 padding: 0;
                 text-decoration: none;
             }
 
             .line {
                 display: inline-block;
+                margin-bottom: 2px;
+                width: 198px;
 
                 /*
                 // .parent(".teaser").css("position","relative");
@@ -127,6 +190,77 @@
                 right: 0;
                 */
             }
+        }
+
+        &-paginators {
+            margin-top: 30px;
+
+            nav {
+                text-align: right;
+
+                a {
+                    padding: 0 3px;
+                }
+            }
+        }
+    }
+
+    .service {
+        background-color: map-get($colors, "c_w");
+        display: none;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        padding: 45px 42px 19px;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        h5 {
+            font-family: 'PT Serif', serif;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        h6 {
+            @extend %font-links;
+            color: map-get($colors, "c_b");
+            margin: 31px 0 -7px;
+            padding: 0;
+        }
+
+        ul {
+            list-style-image: url(../img/services/ul.png);
+            margin: 16px 0 11px;
+            padding-left: 0;
+
+            li {
+                color: map-get($colors, "c_dgo");
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+
+        p {
+            color: map-get($colors, "c_dgo");
+            font-size: 14px;
+            line-height: 20px;
+            margin: 16px 0 11px;
+        }
+
+        .servReturn {
+            background-image: url(../img/services/arrow@2x.png);
+            background-origin: content-box;
+            background-position: 100% 50%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            height: 31px; /*11px*/
+            margin-left: auto;
+            margin-top: 14px;
+            padding: 10px 5px 10px 10px;
+            width: 37px; /*22px*/
+
         }
     }
 }

@@ -104,6 +104,29 @@ $(document).ready(function () {
         return false;
     });
 
+    $('.service-tab').click(function () {
+        var service = $(this).attr('id'),
+            target = $(this).data('target');
+
+        $('.service').stop().animate({
+            opacity: 0
+        }, 700).fadeOut();
+        $('.blackout').stop().removeClass('rotateBlackout');
+
+        $(this).find('.blackout').stop().addClass('rotateBlackout');
+
+        $(target).fadeIn().stop().animate({
+            opacity: 1
+        }, 700);
+    });
+
+    $('.servReturn').click(function () {
+        $(this).closest('.service').stop().animate({
+            opacity: 0
+        }, 700).fadeOut();
+        $('.blackout').stop().removeClass('rotateBlackout');
+    });
+
     /*$(".lnk-inform").focusin(function () {
         var target = $(this).attr("href");
         $(target).toggle();

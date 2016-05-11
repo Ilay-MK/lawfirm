@@ -2,6 +2,13 @@
 
 /* Custom */
 @include placeholder {
+    color: map-get($colors, "c_dgo");
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
     opacity: 1;
     text-overflow: ellipsis;
     text-indent: 0px;
@@ -9,7 +16,7 @@
 }
 
 @include plhdr(":focus") {
-    text-indent: 500px;
+    text-indent: 700px;
     transition: text-indent 0.3s ease;
 }
 

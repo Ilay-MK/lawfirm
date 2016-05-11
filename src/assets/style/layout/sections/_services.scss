@@ -256,8 +256,14 @@
                     color: map-get($colors, "c_dgo");
                     padding: 0 3px;
 
-                    &:hover, &.active {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+
+                    &.active {
                         color: map-get($colors, "c_b");
+                        cursor: default;
+                        text-decoration: none;
                     }
                 }
             }

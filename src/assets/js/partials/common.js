@@ -74,8 +74,10 @@ $(document).ready(function () {
     $("html").click( function () {
         /*$(".inform").fadeOut("slow");*/
         /*$(".inform").find(".content").fadeOut("slow");*/
+        var service = $('.service');
 
         $(".inform").stop().removeClass("animated animDur fadeInRight").fadeOut();
+        closeFDescServ(service);
     } );
 
     $(".inform").click( function () {
@@ -85,6 +87,56 @@ $(document).ready(function () {
     $( ".carousel-indicators li" ).click( function () {
         return false;
     } );
+
+    $('.teasers-paginators a').click(function () {
+        if($(this).hasClass("active")) { return false; }
+
+        var target = $(this).attr("href");
+
+        /*$(".teasers").fadeOut();
+        $(target).fadeIn();*/
+
+        $(".teasers").stop().removeClass("animated animDur fadeInRight").animate({
+            opacity: 0
+        }, 700).css("display", "none");
+
+        /*$(target).toggle("slow");*/
+        $(target).addClass("animated animDur fadeInRight").animate({
+            opacity: 1
+        }, 700).css("display", "block");
+
+        $('.teasers-paginators a').removeClass('active');
+        $(this).addClass('active');
+
+        return false;
+    });
+
+    $('.service-tab').click(function () {
+        if($(this).hasClass("active")) { return false; }
+
+        var service = $(this).attr('id'),
+            target = $(this).data('target');
+
+        $('.service').stop().removeClass("animated animDur fadeInRight").fadeOut();
+        $('.blackout').stop().removeClass('rotateBlackout');
+        $('.service-tab').stop().removeClass('active');
+
+        $(this).find('.blackout').stop().addClass('rotateBlackout');
+        $(this).stop().addClass('active');
+
+        $(target).stop().addClass("animated animDur fadeInRight").fadeIn();
+
+        return false;
+    });
+
+    $('.service').click(function () {
+        return false;
+    });
+
+    $('.servReturn').click(function () {
+        var service = $(this).closest('.service');
+        closeFDescServ(service);
+    });
 
     /*$(".lnk-inform").focusin(function () {
         var target = $(this).attr("href");
@@ -128,6 +180,12 @@ $(document).ready(function () {
     });*/
 
 });
+
+function closeFDescServ(service) {
+    service.stop().removeClass("animated animDur fadeInRight").fadeOut();
+    $('.blackout').stop().removeClass('rotateBlackout');
+    $('.service-tab').stop().removeClass('active');
+}
 
 function centerModal() {
     $(this).css('display', 'block');

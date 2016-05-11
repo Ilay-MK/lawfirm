@@ -4,6 +4,7 @@
     @extend %bg-cover;
     background-image: url(../img/header/carousel/1.jpg);
     /*letter-spacing: 1px;*/
+    overflow: hidden;
     position: relative;
 
     #side-right {
@@ -256,7 +257,7 @@
                     font-family: 'PT Sans', sans-serif;
                     font-size: 14px;
                     line-height: 20px;
-                    color: rgba(255,255,255, 0.7);
+                    color: map-get($colors, "c_wod");
                     margin: 21px 0 43px 4px;
 
                     p {

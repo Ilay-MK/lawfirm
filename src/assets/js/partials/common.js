@@ -89,6 +89,8 @@ $(document).ready(function () {
     } );
 
     $('.teasers-paginators a').click(function () {
+        if($(this).hasClass("active")) { return false; }
+
         var target = $(this).attr("href");
 
         /*$(".teasers").fadeOut();
@@ -110,6 +112,8 @@ $(document).ready(function () {
     });
 
     $('.service-tab').click(function () {
+        if($(this).hasClass("active")) { return false; }
+
         var service = $(this).attr('id'),
             target = $(this).data('target');
 

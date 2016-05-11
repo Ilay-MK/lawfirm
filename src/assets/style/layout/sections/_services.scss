@@ -48,44 +48,98 @@
         margin: 50px 0;
         position: relative;
 
+        img {
+            &.bgimg {
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transition: All 700ms ease;
+
+                /*-webkit-filter: grayscale(100%);
+                -moz-filter: grayscale(100%);
+                -ms-filter: grayscale(100%);
+                -o-filter: grayscale(100%);
+                filter: grayscale(100%);
+                filter: gray;*/ /* IE 6-9 */
+                filter: grayscale(100%);
+            }
+        }
+
         .blackout {
             @extend %transition300ease;
             background-color: rgba(0,0,0, 0.3);
         }
 
+
+        &:hover, &.active {
+
+            img {
+                &.bgimg {
+                    /*-webkit-filter: none;
+                    -moz-filter: none;
+                    -ms-filter: none;
+                    -o-filter: none;*/
+                    filter: none;
+                }
+            }
+        }
+
         &#serv {
 
             &-reg {
-                background-image: url(../img/services/reg@2x.jpg);
+                /*background-image: url(../img/services/reg@2x.jpg);*/
                 height: 370px;
                 margin-top: 200px;
                 width: 370px;
 
-                &:hover {
-                    background-image: url(../img/services/hover/reg@2x.jpg);
+                img {
+                    &.bgimg {
+                        height: 370px;
+                        width: 370px;
+                    }
                 }
+
+                /*&:hover, &.active {
+                    background-image: url(../img/services/hover/reg@2x.jpg);
+                }*/
             }
 
             &-lic {
-                background-image: url(../img/services/lic@2x.jpg);
+                /*background-image: url(../img/services/lic@2x.jpg);*/
                 height: 330px;
                 margin-top: 100px;
                 width: 330px;
 
-                &:hover {
-                    background-image: url(../img/services/hover/lic@2x.jpg);
+                img {
+                    &.bgimg {
+                        height: 330px;
+                        width: 330px;
+                    }
                 }
+
+                /*&:hover, &.active {
+                    background-image: url(../img/services/hover/lic@2x.jpg);
+                }*/
             }
 
             &-reo {
-                background-image: url(../img/services/reo@2x.jpg);
+                /*background-image: url(../img/services/reo@2x.jpg);*/
                 height: 300px;
                 margin-bottom: 30px;
                 width: 330px;
 
-                &:hover {
-                    background-image: url(../img/services/hover/reo@2x.jpg);
+                img {
+                    &.bgimg {
+                        height: 300px;
+                        width: 330px;
+                    }
                 }
+
+                /*&:hover, &.active {
+                    background-image: url(../img/services/hover/reo@2x.jpg);
+                }*/
             }
         }
 
@@ -215,7 +269,7 @@
         display: none;
         bottom: 0;
         left: 0;
-        opacity: 0;
+        /*opacity: 0;*/
         padding: 45px 42px 19px;
         position: absolute;
         right: 0;

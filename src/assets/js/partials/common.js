@@ -74,8 +74,10 @@ $(document).ready(function () {
     $("html").click( function () {
         /*$(".inform").fadeOut("slow");*/
         /*$(".inform").find(".content").fadeOut("slow");*/
+        var service = $('.service');
 
         $(".inform").stop().removeClass("animated animDur fadeInRight").fadeOut();
+        closeFDescServ(service);
     } );
 
     $(".inform").click( function () {
@@ -111,25 +113,25 @@ $(document).ready(function () {
         var service = $(this).attr('id'),
             target = $(this).data('target');
 
-        $('.service').stop().removeClass("animated animDur fadeInRight").animate({
-            opacity: 0
-        }, 700).fadeOut();
+        $('.service').stop().removeClass("animated animDur fadeInRight").fadeOut();
         $('.blackout').stop().removeClass('rotateBlackout');
         $('.service-tab').stop().removeClass('active');
 
         $(this).find('.blackout').stop().addClass('rotateBlackout');
         $(this).stop().addClass('active');
 
-        $(target).stop().addClass("animated animDur fadeInRight").animate({
-            opacity: 1
-        }, 700).fadeIn();
+        $(target).stop().addClass("animated animDur fadeInRight").fadeIn();
+
+        return false;
+    });
+
+    $('.service').click(function () {
+        return false;
     });
 
     $('.servReturn').click(function () {
-        $(this).closest('.service').stop().removeClass("animated animDur fadeInRight").animate({
-            opacity: 0
-        }, 700).fadeOut();
-        $('.blackout').stop().removeClass('rotateBlackout');
+        var service = $(this).closest('.service');
+        closeFDescServ(service);
     });
 
     /*$(".lnk-inform").focusin(function () {
@@ -174,6 +176,12 @@ $(document).ready(function () {
     });*/
 
 });
+
+function closeFDescServ(service) {
+    service.stop().removeClass("animated animDur fadeInRight").fadeOut();
+    $('.blackout').stop().removeClass('rotateBlackout');
+    $('.service-tab').stop().removeClass('active');
+}
 
 function centerModal() {
     $(this).css('display', 'block');

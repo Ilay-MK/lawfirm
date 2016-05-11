@@ -115,8 +115,10 @@ $(document).ready(function () {
             opacity: 0
         }, 700).fadeOut();
         $('.blackout').stop().removeClass('rotateBlackout');
+        $('.service-tab').stop().removeClass('active');
 
         $(this).find('.blackout').stop().addClass('rotateBlackout');
+        $(this).stop().addClass('active');
 
         $(target).stop().addClass("animated animDur fadeInRight").animate({
             opacity: 1

@@ -35,7 +35,9 @@ input {
 
     .form-control-feedback {
         &-icon, &-message-error {
-            display: none;
+            @extend %transition300ease;
+            /*display: none;*/
+            opacity: 0;
             position: absolute;
             /*transition: All 700ms ease;*/
         }
@@ -62,10 +64,32 @@ input {
         }
     }
 
-    &.has-error {
-        .form-control-feedback {
-            &-icon {
-                background-image: url(../img/footer/false.png);
+    &.has {
+        &-error {
+            .form-control-feedback {
+                &-icon, &-message-error  {
+                    /*display: block;*/
+                    opacity: 1;
+                }
+                &-icon {
+                    background-image: url(../img/footer/false.png);
+                }
+                &-message-error {
+
+                }
+            }
+        }
+
+        &-success {
+            .form-control-feedback {
+                &-icon {
+                    /*display: block;*/
+                    opacity: 1;
+                }
+                &-message-error {
+                    /*display: none;*/
+                    opacity: 0;
+                }
             }
         }
     }

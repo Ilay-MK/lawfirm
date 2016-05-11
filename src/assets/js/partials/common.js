@@ -231,8 +231,20 @@ function validate(target) {
         }
     });
 
-    if(!checkingVisible('.form-control-feedback-icon')) { $('.form-control-feedback-icon').fadeIn(); }
-    if(!checkingVisible('.form-control-feedback-message-error')) { $('.form-control-feedback-message-error').fadeIn(); }
+    /*$('.form-control-feedback-icon').each(function () {
+        if( !checkingVisible(this) ) {
+            $( this ).fadeIn();
+        }
+    });
+
+    $('#formOrder > .form-group.has-error > .form-control-feedback-message-error').each(function () {
+        if( !checkingVisible(this) ) {
+            $( this ).fadeIn();
+        }
+    });*/
+
+    /*if(!checkingVisible('.form-control-feedback-icon')) { $('.form-control-feedback-icon').fadeIn(); }
+    if(!checkingVisible('.form-control-feedback-message-error')) { $('.form-control-feedback-message-error').fadeIn(); }*/
 
     //если форма валидна, то
     if (formValid) {
@@ -261,7 +273,7 @@ function ajax(ob) {
         url: processor,
         data: $(ob).serialize(),
         error: function (xhr, str) {
-            /*result.addClass("text-danger bg-danger").text("Пожалуйста, проверьте введённые данные!");*/
+            result.addClass("text-danger bg-danger").text("Пожалуйста, проверьте введённые данные!");
         }
     }).done(function (msg) {
 

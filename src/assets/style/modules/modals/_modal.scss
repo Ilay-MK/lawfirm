@@ -2,4 +2,26 @@
 
 .modal {
 
+    &-dialog {
+        max-width: 502px;
+
+        .form-order {
+            margin: 0 55px;
+
+            .btn {
+                &-main, &-main:link, &-main:visited, &-main:hover, &-main:active, &-main:focus {
+                    background-color: map-get($colors, "c_b");
+                }
+            }
+        }
+    }
+
+    &-title {
+        color: map-get($colors, "c_b");
+        font-size: 20px;
+        letter-spacing: 2px;
+        line-height: 36px;
+        margin-left: 55px;
+        text-transform: uppercase;
+    }
 }

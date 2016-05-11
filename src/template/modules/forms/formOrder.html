@@ -9,23 +9,34 @@
         -- .has-error
         -->
 
-        <div class="form-group has-feedback">
-            <label class="control-label sr-only" for="bsName">Имя</label>
-            <input type="text" class="form-control form-control-v9" name="bsName" id="bsName" placeholder="Имя" aria-describedby="bsNameStatus" />
-            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="form-group form-group-main has-feedback">
+            <label class="control-label sr-only" for="bsName">Введите ваше имя</label>
+            <input type="text" class="form-control form-control-main" name="bsName" id="bsName" placeholder="Введите ваше имя" aria-describedby="bsNameStatus" required="required" />
+            <!--<span class="glyphicon form-control-feedback" aria-hidden="true"></span>-->
             <span id="bsNameStatus" class="sr-only">(успех)</span>
+            <div class="form-control-feedback-icon"></div>
+            <div class="form-control-feedback-message-error">Поле не заполнено.</div>
         </div>
 
-        <div class="form-group has-feedback">
-            <label class="control-label sr-only" for="bsPhone">Телефон</label>
-            <input type="tel" class="form-control form-control-v9" name="bsPhone" id="bsPhone" placeholder="Телефон" aria-describedby="bsPhoneStatus" required="required" pattern="[0-9,+,\-,(,), ]*" />
-            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="form-group form-group-main has-feedback">
+            <label class="control-label sr-only" for="bsPhone">Введите номер телефона</label>
+            <input type="tel" class="form-control form-control-main" name="bsPhone" id="bsPhone" placeholder="Введите номер телефона" aria-describedby="bsPhoneStatus" required="required" pattern="[0-9,+,\-,(,), ]*" />
+            <!--<span class="glyphicon form-control-feedback" aria-hidden="true"></span>-->
             <span id="bsPhoneStatus" class="sr-only">(успех)</span>
+            <div class="form-control-feedback-icon"></div>
+            <div class="form-control-feedback-message-error">Поле не заполнено.</div>
+        </div>
+
+        <div class="form-group form-group-main has-feedback">
+            <label class="control-label sr-only" for="bsPhone">Заметка</label>
+            <textarea name="bsNote" id="bsNote" class="form-control form-control-main" rows="4" placeholder="Заметка" aria-describedby="bsNoteStatus"></textarea>
+            <!--<span class="glyphicon form-control-feedback" aria-hidden="true"></span>-->
+            <span id="bsNoteStatus" class="sr-only">(успех)</span>
         </div>
 
         <input type="hidden" name="whichService" id="whichService" class="form-control" value="">
 
-        <!--<button type="submit" class="btn btn-v6">Заказать</button>-->
+        <button type="submit" class="btn btn-main submit" data-service="footer" role="button" data-submit="#formOrder">Консультация</button>
 
     </form>
 </div>

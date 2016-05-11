@@ -13,6 +13,9 @@ $(document).ready(function () {
         ajax(this);
 	});
     */
+    if (getPageSize()[2] < 768) {
+
+    }
 
     $('.submit').click(function () {
         var recipient = $(this).data('submit');
@@ -43,10 +46,6 @@ $(document).ready(function () {
     $(window).on("resize", function () {
         $('.modal-vertical-centered:visible').each(centerModal);
     });
-
-    if (getPageSize()[2] < 768) {
-
-    }
 
     $(window).resize(function () {
 
@@ -181,6 +180,12 @@ $(document).ready(function () {
 
 });
 
+function checkingVisible(elem) {
+    var res = $(elem).is(":visible");
+
+    return res;
+}
+
 function closeFDescServ(service) {
     service.stop().removeClass("animated animDur fadeInRight").fadeOut();
     $('.blackout').stop().removeClass('rotateBlackout');
@@ -225,6 +230,9 @@ function validate(target) {
             formValid = false;
         }
     });
+
+    if(!checkingVisible('.form-control-feedback-icon')) { $('.form-control-feedback-icon').fadeIn(); }
+    if(!checkingVisible('.form-control-feedback-message-error')) { $('.form-control-feedback-message-error').fadeIn(); }
 
     //если форма валидна, то
     if (formValid) {

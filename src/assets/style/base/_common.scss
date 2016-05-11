@@ -129,3 +129,7 @@ img::-moz-selection {
     color: #fff;
     background: transparent;
 }
+
+:focus {
+    @extend %selection-focus;
+}

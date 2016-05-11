@@ -1,23 +1,73 @@
 @charset "UTF-8";
 
 input {
-
+    @extend %transition300ease;
 }
 
-&.form-control {
+.form-group {
+    position: relative;
 
     &-main {
-        border-radius: 0;
-        color: map-get($colors, "c_dgo");
-        display: inline-block;
-        font-family: 'PT Sans', sans-serif;
-        font-size: 14px;
-        font-style: normal;
-        font-variant: normal;
-        font-weight: 400;
-        line-height: 20px;
-        height: auto;
-        padding: 14px 14px 13px;
+        margin-bottom: 28px;
+    }
+
+    .form-control {
+
+        &-main {
+            border: 1px solid map-get($colors, "c_dgo");
+            border-radius: 0;
+            color: map-get($colors, "c_dgo");
+            display: inline-block;
+            font-family: 'PT Sans', sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 20px;
+            height: auto;
+            padding: 15px 20px 15px;
+
+            &:focus {
+                @extend %selection-focus;
+            }
+        }
+    }
+
+    .form-control-feedback {
+        &-icon, &-message-error {
+            display: none;
+            position: absolute;
+            /*transition: All 700ms ease;*/
+        }
+
+        &-icon {
+            @extend %bg-cover;
+            background-image: url(../img/footer/true.png);
+            height: 20px;
+            right: -50px;
+            top: calc(50% - 10px);
+            width: 26px;
+        }
+
+        &-message-error {
+            bottom: -24px;
+            color: map-get($colors, "c_r");
+            font-family: 'PT Sans', sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 20px;
+            right: 7px;
+        }
+    }
+
+    &.has-error {
+        .form-control-feedback {
+            &-icon {
+                background-image: url(../img/footer/false.png);
+            }
+        }
     }
 }
 

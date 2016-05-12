@@ -306,6 +306,8 @@ function ajax(ob) {
             $('#modalAlert-success').modal('show');
             /*result.removeClass("text-danger bg-danger text-success bg-success").text("");*/
             $('.submit').prop('disabled', false);
+            $('#whichService').val("Подвал");
+            $('#formOrder .has-feedback').removeClass('has-success');
         }, 1000);
 
     });

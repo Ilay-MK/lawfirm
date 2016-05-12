@@ -39,6 +39,12 @@ $(document).ready(function () {
         /*modal.find('#whichService').val(recipient);*/
         $('#whichService').val(recipient);
 
+        $('#placeInFooter>.form-order').detach().prependTo('#placeInModal');  // перемещаем форму из футера в модальное окно
+
+    });
+
+    $('#modalOrder').on('hidden.bs.modal', function (event) {
+        $('#placeInModal>.form-order').detach().prependTo('#placeInFooter');  // перемещаем форму из модального окна в футер
     });
 
     $('.modal-vertical-centered').on('show.bs.modal', centerModal);

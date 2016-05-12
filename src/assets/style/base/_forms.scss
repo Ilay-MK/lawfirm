@@ -1,7 +1,15 @@
 @charset "UTF-8";
 
-input {
+input, textarea {
     @extend %transition300ease;
+}
+
+input {
+
+}
+
+textarea {
+    overflow-x: hidden;
 }
 
 .form-group {
@@ -28,7 +36,8 @@ input {
             padding: 15px 20px 15px;
 
             &:focus {
-                @extend %selection-focus;
+                /*@extend %selection-focus;*/
+                @extend %selection-focus-none;
             }
         }
     }
@@ -104,15 +113,20 @@ button, .btn {
 
     &-main {
         @extend %font-links;
+        @extend %transition300ease;
         border: 1px solid map-get($colors, "c_b");
         border-radius: 0;
+        outline: 0px solid transparent;
+        outline: none;
         padding: 14px 41px 13px 42px;
         width: 189px;
 
-        &:link, &:visited, &:hover, &:active, &:focus {
+        &:link, &:visited, &:hover, &:active, &:focus, &:focus:active {
             @extend %font-links;
             border: 1px solid map-get($colors, "c_b");
             border-radius: 0;
+            outline: 0px solid transparent;
+            outline: none;
             padding: 14px 41px 13px 42px;
             width: 189px;
         }

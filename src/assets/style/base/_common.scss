@@ -15,10 +15,10 @@
     transition: text-indent 0.3s ease;
 }
 
-@include plhdr(":focus") {
+/*@include plhdr(":focus") {
     text-indent: 700px;
     transition: text-indent 0.3s ease;
-}
+}*/
 
 * {
     @include box-sizing (border-box);

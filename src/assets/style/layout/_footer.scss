@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
 #footer {
-    padding: 95px 0 0;
+    padding: 95px 0 164px;
+
+    .container {
+        padding: 0;
+    }
 
     .title {
         margin-bottom: 34px;
@@ -21,10 +25,10 @@
     }
 
     .contacts {
-        margin-top: 104px;
+        margin-top: 106px;
 
         .ln {
-            margin: 31px 0;
+            margin: 21px 0;
 
             h5 {
                 display: inline-block;
@@ -64,13 +68,26 @@
 
     form {
         textarea {
-            height: 103px;
+            height: 110px;
+            margin-bottom: -5px;
         }
 
         .btn {
 
             &-main, &-main:link, &-main:visited, &-main:hover, &-main:active, &-main:focus {
                 background-color: map-get($colors, "c_b");
+                letter-spacing: .8px;
+            }
+
+            &:hover {
+                background-color: transparent;
+                background: none;
+                color: map-get($colors, "c_b");
+            }
+
+            &:active {
+                background-color: map-get($colors, "c_b");
+                color: map-get($colors, "c_w");
             }
         }
     }

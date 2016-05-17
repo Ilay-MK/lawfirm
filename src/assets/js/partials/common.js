@@ -13,6 +13,9 @@ $(document).ready(function () {
         ajax(this);
 	});
     */
+    if (getPageSize()[2] < 768) {
+
+    }
 
     $('.submit').click(function () {
         var recipient = $(this).data('submit');
@@ -36,6 +39,12 @@ $(document).ready(function () {
         /*modal.find('#whichService').val(recipient);*/
         $('#whichService').val(recipient);
 
+        $('#placeInFooter>.form-order').detach().prependTo('#placeInModal');  // перемещаем форму из футера в модальное окно
+
+    });
+
+    $('#modalOrder').on('hidden.bs.modal', function (event) {
+        $('#placeInModal>.form-order').detach().prependTo('#placeInFooter');  // перемещаем форму из модального окна в футер
     });
 
     $('.modal-vertical-centered').on('show.bs.modal', centerModal);
@@ -43,10 +52,6 @@ $(document).ready(function () {
     $(window).on("resize", function () {
         $('.modal-vertical-centered:visible').each(centerModal);
     });
-
-    if (getPageSize()[2] < 768) {
-
-    }
 
     $(window).resize(function () {
 
@@ -181,6 +186,12 @@ $(document).ready(function () {
 
 });
 
+function checkingVisible(elem) {
+    var res = $(elem).is(":visible");
+
+    return res;
+}
+
 function closeFDescServ(service) {
     service.stop().removeClass("animated animDur fadeInRight").fadeOut();
     $('.blackout').stop().removeClass('rotateBlackout');
@@ -226,6 +237,21 @@ function validate(target) {
         }
     });
 
+    /*$('.form-control-feedback-icon').each(function () {
+        if( !checkingVisible(this) ) {
+            $( this ).fadeIn();
+        }
+    });
+
+    $('#formOrder > .form-group.has-error > .form-control-feedback-message-error').each(function () {
+        if( !checkingVisible(this) ) {
+            $( this ).fadeIn();
+        }
+    });*/
+
+    /*if(!checkingVisible('.form-control-feedback-icon')) { $('.form-control-feedback-icon').fadeIn(); }
+    if(!checkingVisible('.form-control-feedback-message-error')) { $('.form-control-feedback-message-error').fadeIn(); }*/
+
     //если форма валидна, то
     if (formValid) {
         return true;
@@ -253,7 +279,7 @@ function ajax(ob) {
         url: processor,
         data: $(ob).serialize(),
         error: function (xhr, str) {
-            /*result.addClass("text-danger bg-danger").text("Пожалуйста, проверьте введённые данные!");*/
+            result.addClass("text-danger bg-danger").text("Пожалуйста, проверьте введённые данные!");
         }
     }).done(function (msg) {
 
@@ -280,6 +306,8 @@ function ajax(ob) {
             $('#modalAlert-success').modal('show');
             /*result.removeClass("text-danger bg-danger text-success bg-success").text("");*/
             $('.submit').prop('disabled', false);
+            $('#whichService').val("Подвал");
+            $('#formOrder .has-feedback').removeClass('has-success');
         }, 1000);
 
     });

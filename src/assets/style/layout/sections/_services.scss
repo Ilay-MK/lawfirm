@@ -258,13 +258,24 @@
                     padding: 0 3px;
 
                     &:hover {
-                        text-decoration: underline;
+                        /*text-decoration: underline;*/
+                        .underline {
+                            border-bottom: 1px solid map-get($colors, "c_dgo");
+                        }
                     }
 
                     &.active {
                         color: map-get($colors, "c_b");
                         cursor: default;
                         text-decoration: none;
+
+                        .underline {
+                            border: none;
+                        }
+                    }
+
+                    .underline {
+
                     }
                 }
             }

@@ -138,5 +138,5 @@ img::-moz-selection {
 }
 
 :focus {
-    @extend %selection-focus;
+   /* @extend %selection-focus;*/
 }

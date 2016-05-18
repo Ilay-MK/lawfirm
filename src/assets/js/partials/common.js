@@ -53,10 +53,6 @@ $(document).ready(function () {
         $('.modal-vertical-centered:visible').each(centerModal);
     });
 
-    $(window).resize(function () {
-
-    });
-
     $('#header-carousel').on('slid.bs.carousel', function () {
         var slide = + $(this).find(".carousel-indicators li.active").attr("data-slide-to") + 1;
         $("#paginationNumber").text(slide);
@@ -142,6 +138,12 @@ $(document).ready(function () {
         var service = $(this).closest('.service');
         closeFDescServ(service);
     });
+
+    $('form').find('input').on('input', function () {
+        //найти предка, который имеет класс .form-group, для удаления success/error
+        var formGroup = $(this).parents('.form-group');
+        formGroup.removeClass('has-error has-success');
+    })
 
     /*$(".lnk-inform").focusin(function () {
         var target = $(this).attr("href");

@@ -143,6 +143,9 @@ $(document).ready(function () {
         //найти предка, который имеет класс .form-group, для удаления success/error
         var formGroup = $(this).parents('.form-group');
         formGroup.removeClass('has-error has-success');
+        $('#formOrder .form-control-feedback-message-success').animate({
+            opacity: 0
+        }, 300);
     })
 
     /*$(".lnk-inform").focusin(function () {
@@ -305,8 +308,11 @@ function ajax(ob) {
             //сркыть модальное окно
             $('#modalOrder').modal('hide');
             //отобразить сообщение об успехе
-            $('#modalAlert-success').modal('show');
+            /*$('#modalAlert-success').modal('show');*/
             /*result.removeClass("text-danger bg-danger text-success bg-success").text("");*/
+            $('#formOrder .form-control-feedback-message-success').animate({
+                opacity: 1
+            }, 300);
             $('.submit').prop('disabled', false);
             $('#whichService').val("Подвал");
             $('#formOrder .has-feedback').removeClass('has-success');

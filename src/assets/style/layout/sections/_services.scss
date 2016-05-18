@@ -192,6 +192,7 @@
     .teasers {
         @extend %transition300ease;
         display: none;
+        z-index: 15;
 
         &#teas-page {
             &-1 {
@@ -296,6 +297,7 @@
         position: absolute;
         right: 0;
         top: 0;
+        z-index: 20;
 
         h5 {
             font-family: 'PT Serif', serif;

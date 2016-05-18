@@ -1,4 +1,7 @@
 <?php>
+    error_reporting(-1);
+    header('Content-Type: text/html; charset= utf-8');
+
     $error = false;
 
     if (!empty($_POST["bsName"])) {

@@ -220,7 +220,7 @@ function validate(target) {
     //переменная formValid
     var formValid = true;
 
-    $(target).find('input').each(function () {
+    $(target).find('input.validating').each(function () {
         //найти предков, которые имеют класс .form-group, для установления success/error
         var formGroup = $(this).parents('.form-group');
         //найти glyphicon, который предназначен для показа иконки успеха или ошибки
@@ -306,16 +306,14 @@ function ajax(ob) {
 
         setTimeout(function () {
             //сркыть модальное окно
-            $('#modalOrder').modal('hide');
+            $(ob).modal('hide');
             //отобразить сообщение об успехе
-            /*$('#modalAlert-success').modal('show');*/
-            /*result.removeClass("text-danger bg-danger text-success bg-success").text("");*/
-            $('#formOrder .form-control-feedback-message-success').animate({
+            $(ob).find('.form-control-feedback-message-success').animate({
                 opacity: 1
             }, 300);
-            $('.submit').prop('disabled', false);
-            $('#whichService').val("Подвал");
-            $('#formOrder .has-feedback').removeClass('has-success');
+            $(ob).find('.submit').prop('disabled', false);
+            $(ob).find('#whichService').val("Подвал"); /* нужно заменить на класс */
+            $(ob).find('.has-feedback').removeClass('has-success');
         }, 1000);
 
     });

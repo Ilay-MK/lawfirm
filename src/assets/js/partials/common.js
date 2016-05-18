@@ -284,7 +284,7 @@ function ajax(ob) {
         url: processor,
         data: $(ob).serialize(),
         error: function (xhr, str) {
-            result.addClass("text-danger bg-danger").text("Пожалуйста, проверьте введённые данные!");
+            /*result.addClass("text-danger bg-danger").text("Пожалуйста, проверьте введённые данные!");*/
         }
     }).done(function (msg) {
 

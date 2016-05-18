@@ -5,6 +5,19 @@
     &-dialog {
         max-width: 512px;
 
+        .modal-header {
+
+            .close {
+                outline: 0px solid transparent;
+                outline: none;
+
+                &:link, &:visited, &:hover, &:active, &:focus {
+                    outline: 0px solid transparent;
+                    outline: none;
+                }
+            }
+        }
+
         .form-order {
             margin: 0 55px;
 

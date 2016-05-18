@@ -256,11 +256,12 @@
                 a:link, a:visited, a:hover, a:active, a:focus {
                     color: map-get($colors, "c_dgo");
                     padding: 0 3px;
+                    position: relative;
 
                     &:hover {
                         /*text-decoration: underline;*/
                         .underline {
-                            border-bottom: 1px solid map-get($colors, "c_dgo");
+                            background-color: map-get($colors, "c_dgo");
                         }
                     }
 
@@ -270,12 +271,15 @@
                         text-decoration: none;
 
                         .underline {
-                            border: none;
+                            background-color: transparent;
                         }
                     }
 
                     .underline {
-
+                        display: block;
+                        height: 1px;
+                        margin-top: -3px;
+                        width: 8px;
                     }
                 }
             }

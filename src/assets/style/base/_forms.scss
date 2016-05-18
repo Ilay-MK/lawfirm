@@ -53,11 +53,11 @@ textarea {
 
         &-icon {
             @extend %bg-cover;
-            background-image: url(../img/footer/true.png);
-            height: 20px;
-            right: -50px;
-            top: calc(50% - 10px);
-            width: 26px;
+            background-image: url(../img/validate/tick@2x.png);
+            height: 13px;
+            right: -30px; /* -43px */
+            top: calc(50% - 6.5px);
+            width: 16px;
         }
 
         &-message-error {
@@ -81,7 +81,7 @@ textarea {
                     opacity: 1;
                 }
                 &-icon {
-                    background-image: url(../img/footer/false.png);
+                    background-image: url(../img/validate/error@2x.png);
                 }
                 &-message-error {
 

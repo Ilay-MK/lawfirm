@@ -9,24 +9,36 @@ $(function () {
 $(document).ready(function () {
 
     // Ajax send mail
-    /*$(".order").submit(function () {
+    $(".order").submit(function (e) {
         ajax(this);
-	});
-    */
-    if (getPageSize()[2] < 768) {
 
-    }
+        return false;
+	});
 
     $('.submit').click(function () {
         var recipient = $(this).data('submit');
-        $(this).prop('disabled', true);
-
-        setTimeout(function () {
-            $('.submit').prop('disabled', false);
-        }, 1000);
 
         $(recipient).submit();
+        //ajax(recipient);
+
+        return false;
     });
+
+    $('form').find('input').on('input', function () {
+        //найти предка, который имеет класс .form-group, для удаления success/error
+        var formGroup = $(this).parents('.form-group');
+
+        formGroup.removeClass('has-error has-success');
+        $('#formOrder .form-control-feedback-message-success').animate({
+            opacity: 0
+        }, 300);
+
+        $(this).closest('form').find('.submit').prop('disabled', false);
+    })
+
+    if (getPageSize()[2] < 768) {
+
+    }
 
     $('#modalOrder').on('show.bs.modal', function (event) {
         centerModal; /* вертикальное центрирование */
@@ -138,15 +150,6 @@ $(document).ready(function () {
         var service = $(this).closest('.service');
         closeFDescServ(service);
     });
-
-    $('form').find('input').on('input', function () {
-        //найти предка, который имеет класс .form-group, для удаления success/error
-        var formGroup = $(this).parents('.form-group');
-        formGroup.removeClass('has-error has-success');
-        $('#formOrder .form-control-feedback-message-success').animate({
-            opacity: 0
-        }, 300);
-    })
 
     /*$(".lnk-inform").focusin(function () {
         var target = $(this).attr("href");
@@ -283,9 +286,24 @@ function ajax(ob) {
         type: "POST",
         url: processor,
         data: $(ob).serialize(),
-        error: function (xhr, str) {
+        beforeSend: function(data) { // сoбытиe дo oтпрaвки
+            /*$(ob).find('input[type="submit"]').attr('disabled', 'disabled');*/ // нaпримeр, oтключим кнoпку, чтoбы нe жaли пo 100 рaз
+            $(ob).find('.submit').attr('disabled', 'disabled');
+        },
+        complete: function(data) { // сoбытиe пoслe любoгo исхoдa
+            /*$(ob).find('input[type="submit"]').prop('disabled', false);*/ // в любoм случae включим кнoпку oбрaтнo
+            $(ob).find('.submit').prop('disabled', false);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
             /*result.addClass("text-danger bg-danger").text("Пожалуйста, проверьте введённые данные!");*/
-        }
+            /*alert("Ошибка: "+xhr.responseCode+" | сообщение: "+str);*/ /* отладка */
+            //alert("send email ERROR! "+ xhr.responseText); /* xhr.responseCode */
+            //alert(xhr.status); // пoкaжeм oтвeт сeрвeрa
+            //alert(thrownError); // и тeкст oшибки
+        },
+        success: function(data) {
+            //alert(data); /* $('.results').html(data); */
+        },
     }).done(function (msg) {
 
         /*if(msg === "OK"){
@@ -311,7 +329,6 @@ function ajax(ob) {
             $(ob).find('.form-control-feedback-message-success').animate({
                 opacity: 1
             }, 300);
-            $(ob).find('.submit').prop('disabled', false);
             $(ob).find('#whichService').val("Подвал"); /* нужно заменить на класс */
             $(ob).find('.has-feedback').removeClass('has-success');
         }, 1000);

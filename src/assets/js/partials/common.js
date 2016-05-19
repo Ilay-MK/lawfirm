@@ -41,7 +41,7 @@ $(document).ready(function () {
     }
 
     $('#modalOrder').on('show.bs.modal', function (event) {
-        centerModal; /* вертикальное центрирование */
+        //centerModal; /* вертикальное центрирование */
         var button = $(event.relatedTarget); // Button that triggered the modal
         var recipient = button.data('service'); // Extract info from data-* attributes
         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -209,8 +209,10 @@ function closeFDescServ(service) {
 function centerModal() {
     $(this).css('display', 'block');
     var $dialog = $(this).find(".modal-dialog");
-    var offset = ($(window).height() - $dialog.height()) / 2;
+    var offset = (getPageSize()[3] - $dialog.height()) / 2; // getPageSize()[3] - использовал собст. функцию, т.к. $(windows).height() на iPhone не работала правильно ;(
+    var offsetLeft = (getPageSize()[2] - $dialog.width()) / 2;
     $dialog.css("margin-top", offset);
+    $dialog.css("margin-left", offsetLeft); // Добавил выравнивание по горизонтали, т.к. на iPhone не выравнивалось
 }
 
 function validate(target) {

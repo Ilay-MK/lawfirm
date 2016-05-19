@@ -4,6 +4,8 @@
 
     $error = false;
 
+    $name = $phone = $note = "";
+
     if (!empty($_POST["bsName"])) {
         $name = substr(htmlspecialchars(trim($_POST["bsName"])), 0, 50);
 	}

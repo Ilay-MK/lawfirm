@@ -43,10 +43,14 @@
         @extend %transition300ease;
         cursor: pointer;
         font-family: 'PT Serif', serif;
-        display: table;
         overflow: hidden;
         margin: 50px 0;
         position: relative;
+
+        .wrapper {
+            display: table;
+            width: 100%;
+        }
 
         img {
             &.bgimg {
@@ -94,6 +98,10 @@
                 margin-top: 200px;
                 width: 370px;
 
+                .wrapper {
+                    height: 370px;
+                }
+
                 img {
                     &.bgimg {
                         height: 370px;
@@ -112,6 +120,10 @@
                 margin-top: 100px;
                 width: 330px;
 
+                .wrapper {
+                    height: 330px;
+                }
+
                 img {
                     &.bgimg {
                         height: 330px;
@@ -129,6 +141,10 @@
                 height: 300px;
                 margin-bottom: 30px;
                 width: 330px;
+
+                .wrapper {
+                    height: 300px;
+                }
 
                 img {
                     &.bgimg {

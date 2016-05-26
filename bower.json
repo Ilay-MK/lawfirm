@@ -1,23 +1,24 @@
 {
-    "name": "jur-profit.by",
-    "description": "Landing. Юридическая помощь. (Для Щербы Андрея)",
-    "main": "index.html",
-    "authors": [
+  "name": "jur-profit.by",
+  "description": "Landing. Юридическая помощь. (Для Щербы Андрея)",
+  "main": "index.html",
+  "authors": [
     "Ilya Purouski"
   ],
-    "license": "ISC",
-    "moduleType": [],
-    "homepage": "",
-    "ignore": [
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
   ],
-    "dependencies": {
-        "normalize.css": "*",
-        "protonet/jquery.inview": "^1.1.2",
-        "animate.css": "^3.5.1"
-    }
+  "dependencies": {
+    "normalize.css": "*",
+    "protonet/jquery.inview": "^1.1.2",
+    "animate.css": "^3.5.1",
+    "jquery.maskedinput": "jquery-maskedinput#^1.4.1"
+  }
 }

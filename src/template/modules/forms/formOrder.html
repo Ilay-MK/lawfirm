@@ -20,7 +20,7 @@
 
         <div class="form-group form-group-main has-feedback">
             <label class="control-label sr-only" for="bsPhone">Введите номер телефона</label>
-            <input type="tel" class="validating form-control form-control-main" name="bsPhone" id="bsPhone" placeholder="Введите номер телефона" aria-describedby="bsPhoneStatus" required="required" pattern="[0-9,+,\-,(,), ]*" />
+            <input type="tel" class="validating form-control form-control-main" name="bsPhone" id="bsPhone" placeholder="Введите номер телефона" aria-describedby="bsPhoneStatus" required="required" pattern="+375 ([0-9]{2}) [0-9]{3}-[0-9]{2}-[0-9]{2}" /> <!-- pattern="[0-9,+,\-,(,), ]*" -->
             <!--<span class="glyphicon form-control-feedback" aria-hidden="true"></span>-->
             <span id="bsPhoneStatus" class="sr-only">(успех)</span>
             <div class="form-control-feedback-icon"></div>

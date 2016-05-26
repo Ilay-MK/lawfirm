@@ -17,4 +17,12 @@ $(document).ready(function() {
 		return false;
 	});
 
+    /* mask of inputs */
+
+    $.mask.definitions['~']='[+-]';
+    $.mask.definitions['h'] = "[2349]";
+    $.mask.definitions['!'] = "[0-9]";
+
+    $("#bsPhone").mask("+375 (hh) 999-99-99", {placeholder:"_"});
+
 });

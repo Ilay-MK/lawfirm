@@ -37,15 +37,17 @@ height: 574px; /*TEMP*/
 
         .line-v {
             bottom: -13px; /*0*/
+            height: 0; /* для анимации */
             left: 55px;
             position: absolute;
         }
 
         h3 {
-
+            opacity: 0;
         }
 
         .txt {
+            opacity: 0;
             margin-top: 97px;
         }
     }

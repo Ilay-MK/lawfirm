@@ -36,6 +36,18 @@ $(document).ready(function () {
         $(this).closest('form').find('.submit').prop('disabled', false);
     })
 
+    $('form').find('input').on('keydown', function () {
+        //найти предка, который имеет класс .form-group, для удаления success/error
+        var formGroup = $(this).parents('.form-group');
+
+        formGroup.removeClass('has-error has-success');
+        $('#formOrder .form-control-feedback-message-success').animate({
+            opacity: 0
+        }, 300);
+
+        $(this).closest('form').find('.submit').prop('disabled', false);
+    })
+
     if (getPageSize()[2] < 768) {
 
     }
@@ -136,6 +148,27 @@ $(document).ready(function () {
         closeFDescServ(service);
     });
 
+    $(document).scroll( function () {
+        var currScrollPos = $(document).scrollTop(),
+            offset        = $('#about').offset(),
+            toBlock       = offset.top - currScrollPos,
+            heightStart   = 0,
+            heightFinish  = 256,
+            bottomIndex   = 0.48,
+            bottomStart   = 242,
+            bottomFinish  = -13;
+
+        if( toBlock <= 0 || currScrollPos/2 > 256) {
+            $('#about .title .line-v').css("height", 256);
+            $('#about .title .line-v').css("bottom", bottomFinish);
+            return;
+        }
+
+        $('#about .title .line-v').css("height", currScrollPos/2);
+        $('#about .title .line-v').css("bottom", bottomStart - currScrollPos * bottomIndex);
+        $("#about").attr("px", currScrollPos);
+    } );
+
     /*$(".lnk-inform").focusin(function () {
         var target = $(this).attr("href");
         $(target).toggle();
@@ -158,24 +191,78 @@ $(document).ready(function () {
         });*/
 
     /* inview  */
-    /*jQuery('#benefits .ico img').bind('inview', function (event, visible) {
+    jQuery('#advantages .col').bind('inview', function (event, visible) {
         if (visible) {
-            $(this).stop().addClass("animated bounceIn");
+            $(this).stop().addClass("animated lightSpeedIn"); /*bounceInRight*/
         } else {
-            $(this).stop().removeClass("animated bounceIn");
+            $(this).stop().removeClass("animated lightSpeedIn");
         }
-    });*/
+    });
 
-    /*  */
-    /*$('#carpark .car').one('inview', function (event) {
+    jQuery('#services .service-tab').bind('inview', function (event, visible) {
+        if (visible) {
+            $(this).stop().addClass("animated flipInX"); /*lightSpeedIn*/
+        } else {
+            $(this).stop().removeClass("animated flipInX");
+        }
+    });
+
+    jQuery('#services .colth-3 .title').bind('inview', function (event, visible) {
+        if (visible) {
+            $(this).stop().addClass("animated lightSpeedIn");
+        } else {
+            $(this).stop().removeClass("animated lightSpeedIn");
+        }
+    });
+
+    jQuery('#services .colth-3 .bg-white').bind('inview', function (event, visible) {
+        if (visible) {
+            $(this).stop().addClass("animated lightSpeedIn");
+        } else {
+            $(this).stop().removeClass("animated lightSpeedIn");
+        }
+    });
+
+    jQuery('#footer .title').bind('inview', function (event, visible) {
+        if (visible) {
+            $(this).stop().addClass("animated lightSpeedIn");
+        } else {
+            $(this).stop().removeClass("animated lightSpeedIn");
+        }
+    });
+
+    jQuery('#footer .form-order').bind('inview', function (event, visible) {
+        if (visible) {
+            $(this).stop().addClass("animated fadeInUp");
+        } else {
+            $(this).stop().removeClass("animated fadeInUp");
+        }
+    });
+
+    /* inview ones */
+    $('#about .title h3').one('inview', function (event) {
 
         var Block = $(this);
 
         // Show a smooth animation
         Block.animate({
             opacity: 1
-        }, 1500);
-    });*/
+        }, 1000);
+
+        Block.addClass("animated fadeInRight");
+    });
+
+    $('#about .left .txt').one('inview', function (event) {
+
+        var Block = $(this);
+
+        // Show a smooth animation
+        Block.animate({
+            opacity: 1
+        }, 1000);
+
+        /*Block.addClass("animated fadeIn");*/
+    });
 
 });
 

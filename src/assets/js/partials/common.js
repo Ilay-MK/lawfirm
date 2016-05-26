@@ -71,25 +71,22 @@ $(document).ready(function () {
     })
 
     $(".lnk-inform").click( function () {
+        if($(this).hasClass("active")) { return false; }
+
         var target = $(this).attr("href");
 
-        /*$(".inform").stop().removeClass("animated animDur fadeInRight").css("display", "none"); */
-        $(".inform").stop().removeClass("animated animDur fadeInRight").fadeOut(); /* Одно окно одновременно */
+        /*$(".inform").stop().css("display", "none").removeClass("animated animDur fadeInRight"); */
+        $(".inform").stop().fadeOut().removeClass("animated animDur fadeInRight"); /* Одно окно одновременно */
 
-        /*$(target).toggle("slow");*/
-        /*$(target).find(".content").toggle("slow");*/
-
-        $(target).addClass("animated animDur fadeInRight").css("display", "block");
+        $(target).addClass("animated animDur fadeInRight").fadeIn();
 
         return false;
     } );
 
     $("html").click( function () {
-        /*$(".inform").fadeOut("slow");*/
-        /*$(".inform").find(".content").fadeOut("slow");*/
-        var service = $('.service');
+        var service = $('.service.active');
 
-        $(".inform").stop().removeClass("animated animDur fadeInRight").fadeOut();
+        $(".inform").stop().fadeOut().removeClass("animated animDur fadeInRight");
         closeFDescServ(service);
     } );
 
@@ -106,19 +103,10 @@ $(document).ready(function () {
 
         var target = $(this).attr("href");
 
-        /*$(".teasers").fadeOut();
-        $(target).fadeIn();*/
+        $(".teasers.active").stop().removeClass("active");
+        $('.teasers-paginators a.active').removeClass('active');
 
-        $(".teasers").stop().removeClass("animated animDur fadeInRight").animate({
-            opacity: 0
-        }, 700).css("display", "none");
-
-        /*$(target).toggle("slow");*/
-        $(target).addClass("animated animDur fadeInRight").animate({
-            opacity: 1
-        }, 700).css("display", "block");
-
-        $('.teasers-paginators a').removeClass('active');
+        $(target).addClass("active");
         $(this).addClass('active');
 
         return false;
@@ -127,17 +115,14 @@ $(document).ready(function () {
     $('.service-tab').click(function () {
         if($(this).hasClass("active")) { return false; }
 
-        var service = $(this).attr('id'),
-            target = $(this).data('target');
+        var serviceTab = $(this),
+            service    = $( $(this).data('target') );
 
-        $('.service').stop().removeClass("animated animDur fadeInRight").fadeOut();
-        $('.blackout').stop().removeClass('rotateBlackout');
-        $('.service-tab').stop().removeClass('active');
+        $('.service-tab.active').stop().removeClass('active').find('.blackout').stop().removeClass('rotateBlackout');
+        $('.service.active').stop().removeClass("active");
 
-        $(this).find('.blackout').stop().addClass('rotateBlackout');
-        $(this).stop().addClass('active');
-
-        $(target).stop().addClass("animated animDur fadeInRight").fadeIn();
+        serviceTab.stop().addClass('active').find('.blackout').stop().addClass('rotateBlackout');
+        service.stop().addClass("active").fadeIn(500);
 
         return false;
     });
@@ -201,9 +186,8 @@ function checkingVisible(elem) {
 }
 
 function closeFDescServ(service) {
-    service.stop().removeClass("animated animDur fadeInRight").fadeOut();
-    $('.blackout').stop().removeClass('rotateBlackout');
-    $('.service-tab').stop().removeClass('active');
+    service.stop().removeClass("active").fadeOut(500);
+    $('.service-tab.active').stop().removeClass('active').find('.blackout').stop().removeClass('rotateBlackout');
 }
 
 function centerModal() {

@@ -217,6 +217,8 @@ $(document).ready(function () {
     $('.teasers-paginators a').click(function () {
         if($(this).hasClass("active")) { return false; }
 
+        $('.teaser').css("opacity", "1");
+
         var target = $(this).attr("href");
 
         $(".teasers.active").stop().removeClass("active");
@@ -300,6 +302,7 @@ $(document).ready(function () {
         Block.animate({
             opacity: 1
         }, 1000);
+
     });
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */

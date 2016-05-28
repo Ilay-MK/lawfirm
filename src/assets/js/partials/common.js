@@ -20,6 +20,7 @@ $(document).ready(function () {
 
     $(document).scroll( function () {
         animVLineInAbout();
+        /*animVLineInAboutOther();*/
     } );
 
     $("html").click( function () {
@@ -302,19 +303,21 @@ $(document).ready(function () {
 /* - - - - - - - - - - - - - - - FUNCTIONS - - - - - - - - - - - - - - - */
 
 /* Анимирование вертикальной линии в блоке #about */
-function animVLineInAbout() {
+function animVLineInAboutOther() {
     var currScrollPos = $(document).scrollTop(),
         offset        = $('#about').offset(),
         toBlock       = offset.top - currScrollPos,
         heightStart   = 0,
-        heightFinish  = '256px',
+        heightFinish  = 256,
         bottomIndex   = 0.48,
         bottomStart   = 242,
         bottomFinish  = -13,
-        currHeight    = $('#about .title .line-v').css("height"); /* Узнаём для того, чтобы полосочка только увеличивалась */
+        currHeight    = $('#about .title .line-v').css("height").replace(/[^-0-9]/gim,'');
 
-    if( currHeight == heightFinish ) { return; }
+    /* 2 Вариант { */
+    if( currHeight == heightFinish ) { return; } /* вариант 2 - изменяется размер полосочки и в + и в - пока не станет 256px */
 
+    /* 1 Вариант { */
     if( toBlock <= 0 || currScrollPos/2 > heightFinish ) {
         $('#about .title .line-v').css("height", heightFinish);
         $('#about .title .line-v').css("bottom", bottomFinish);
@@ -323,7 +326,45 @@ function animVLineInAbout() {
 
     $('#about .title .line-v').css("height", currScrollPos/2);
     $('#about .title .line-v').css("bottom", bottomStart - currScrollPos * bottomIndex);
-    $("#about").attr("px", currScrollPos);
+    /* } */
+};
+
+/* Анимирование вертикальной линии в блоке #about */
+function animVLineInAbout() {
+    var currScrollPos = +$(document).scrollTop(),
+        heightFinish  = +256,
+        bottomIndex   = +0.48,
+        bottomStart   = +242,
+        bottomFinish  = +(-13),
+
+        currHeight    = +$('#about .title .line-v').css("height").replace(/[^-0-9]/gim,''),
+        incHeight     = currScrollPos/2 - currHeight,
+        height        = currHeight + incHeight,
+        decBottom     = currScrollPos * bottomIndex,
+        bottom        = bottomStart - decBottom;
+
+    /*console.log("currScrollPos: " + currScrollPos);
+    console.log("currHeight: "    + currHeight);
+    console.log("incHeight: "     + incHeight);
+    console.log("height: "        + height);
+    console.log("decBottom: "     + decBottom);
+    console.log("bottom: "        + bottom);
+    console.log("---------------------------------------------------------");*/
+
+    if ( currScrollPos/2 > heightFinish ) {
+        $('#about .title .line-v').css("height", heightFinish);
+        $('#about .title .line-v').css("bottom", bottomFinish);
+        return;
+    }
+    if ( incHeight <= 0) {
+        return;
+    }
+
+    $('#about .title .line-v').css("height", height);
+    $('#about .title .line-v').css("bottom", bottom);
+
+    if( currHeight == heightFinish ) { return; }
+
 };
 
 /* Проверка на видимость элемента */

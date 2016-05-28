@@ -77,6 +77,17 @@ $(document).ready(function () {
         $('.modal-vertical-centered:visible').each(centerModal);
     });
 
+    $('#header').animate({
+        opacity: 1
+    }, 1000);
+
+    $("html").click( function () {
+        var service = $('.service.active');
+
+        $(".inform").stop().fadeOut().removeClass("animated animDur fadeInRight");
+        closeFDescServ(service);
+    } );
+
     $('#header-carousel').on('slid.bs.carousel', function () {
         var slide = + $(this).find(".carousel-indicators li.active").attr("data-slide-to") + 1;
         $("#paginationNumber").text(slide);
@@ -93,13 +104,6 @@ $(document).ready(function () {
         $(target).addClass("animated animDur fadeInRight").fadeIn();
 
         return false;
-    } );
-
-    $("html").click( function () {
-        var service = $('.service.active');
-
-        $(".inform").stop().fadeOut().removeClass("animated animDur fadeInRight");
-        closeFDescServ(service);
     } );
 
     $(".inform").click( function () {

@@ -18,6 +18,10 @@
             transform-origin: 41px 100%;
         }
 
+        h3 {
+            opacity: 0;
+        }
+
         .line-v {
             left: 17px;
             position: relative;
@@ -65,6 +69,10 @@
             font-weight: 400;
             line-height: 20px;
         }
+    }
+
+    .form-order {
+        opacity: 0;
     }
 
     form {

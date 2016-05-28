@@ -21,6 +21,7 @@ $(document).ready(function () {
     $(document).scroll( function () {
         animVLineInAbout();
         /*animVLineInAboutOther();*/
+        hideScrollLink();
     } );
 
     $("html").click( function () {
@@ -167,7 +168,6 @@ $(document).ready(function () {
 
     /* inview ones */
     $('#about .title h3').one('inview', function (event) {
-
         var Block = $(this);
 
         // Show a smooth animation
@@ -179,7 +179,6 @@ $(document).ready(function () {
     });
 
     $('#about .left .txt').one('inview', function (event) {
-
         var Block = $(this);
 
         // Show a smooth animation
@@ -189,6 +188,14 @@ $(document).ready(function () {
 
         /*Block.addClass("animated fadeIn");*/
     });
+
+    /* - - - - - - - - - - - - */
+
+    $('#scroll-link').click( function () {
+        $.scrollTo('#about', 800, {
+			offset: 0
+		});
+    } );
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
     /* - - - - - - - - - - - - - - - ADVANTAGES - - - - - - - - - - - - - - - */
@@ -274,6 +281,27 @@ $(document).ready(function () {
     });
     */
 
+    /* inview ones */
+    $('#services .title h3').one('inview', function (event) {
+         var Block = $(this);
+
+        // Show a smooth animation
+        Block.animate({
+            opacity: 1
+        }, 1000);
+
+        Block.addClass("animated fadeInLeft");
+    });
+
+    $('#services .teasers.active .teaser').one('inview', function (event) {
+        var Block = $(this);
+
+        // Show a smooth animation
+        Block.animate({
+            opacity: 1
+        }, 1000);
+    });
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
     /* - - - - - - - - - - - - - - - - FOOTER - - - - - - - - - - - - - - - - */
 
@@ -288,12 +316,35 @@ $(document).ready(function () {
         }
     });*/
 
-    jQuery('#footer .form-order').bind('inview', function (event, visible) {
+    /*jQuery('#footer .form-order').bind('inview', function (event, visible) {
         if (visible) {
             $(this).stop().addClass("animated fadeInUp");
         } else {
             $(this).stop().removeClass("animated fadeInUp");
         }
+    });*/
+
+    /* inview ones */
+    jQuery('#footer .title h3').one('inview', function (event) {
+        var Block = $(this);
+
+        // Show a smooth animation
+        Block.animate({
+            opacity: 1
+        }, 1000);
+
+        Block.addClass("animated fadeInLeft");
+    });
+
+    jQuery('#footer .form-order').one('inview', function (event) {
+        var Block = $(this);
+
+        // Show a smooth animation
+        Block.animate({
+            opacity: 1
+        }, 1000);
+
+        Block.addClass("animated fadeInUp");
     });
 
 });
@@ -301,6 +352,22 @@ $(document).ready(function () {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - - - FUNCTIONS - - - - - - - - - - - - - - - */
+
+function hideScrollLink() {
+    var currScrollPos = $(document).scrollTop(),
+        offset        = $('#about').offset(),
+        toBlock       = +offset.top - currScrollPos,
+        object        = $('#scroll-link');
+
+    console.log(toBlock);
+
+    if(toBlock <= 10 ) {
+        object.fadeOut();
+    }
+    else {
+        object.fadeIn();
+    }
+};
 
 /* Анимирование вертикальной линии в блоке #about */
 function animVLineInAboutOther() {

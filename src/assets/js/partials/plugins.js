@@ -13,7 +13,7 @@ $(document).ready(function() {
         $.scrollTo($(this).attr('href'), 800, {
 			offset: 0
 		});
-        $('.navbar-toggle').click(); /*для того, чтобы свернуть менюшку для удобства*/
+        /*$('.navbar-toggle').click();*/ /*для того, чтобы свернуть менюшку для удобства*/
 		return false;
 	});
 

@@ -8,6 +8,30 @@ $(function () {
 
 $(document).ready(function () {
 
+    if (getPageSize()[2] < 768) {
+
+    }
+
+    /* - - - - - - - - - - - - */
+
+    $(window).on("resize", function () {
+        $('.modal-vertical-centered:visible').each(centerModal);
+    });
+
+    $(document).scroll( function () {
+        animVLineInAbout();
+    } );
+
+    $("html").click( function () {
+        var service = $('.service.active');
+
+        $(".inform").stop().fadeOut().removeClass("animated animDur fadeInRight");
+        closeFDescServ(service);
+    } );
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /* - - - - - - - - - - - - - - - - FORMS - - - - - - - - - - - - - - - - */
+
     // Ajax send mail
     $(".order").submit(function (e) {
         ajax(this);
@@ -23,6 +47,8 @@ $(document).ready(function () {
 
         return false;
     });
+
+    /* - - - - - - - - - - - - */
 
     $('form').find('input').on('input', function () {
         //найти предка, который имеет класс .form-group, для удаления success/error
@@ -48,9 +74,21 @@ $(document).ready(function () {
         $(this).closest('form').find('.submit').prop('disabled', false);
     })
 
-    if (getPageSize()[2] < 768) {
+    /* - - - - - - - - - - - - */
 
-    }
+    /* смена фона кнопок в форме заяве */
+    /*$('#modalOrder .modal-footer .phone')
+        .mouseenter(function () {
+            $('#modalOrder .modal-footer .submit').removeClass("bg_h");
+            $(this).addClass("bg_h");
+        })
+        .mouseleave(function () {
+            $(this).removeClass("bg_h");
+            $('#modalOrder .modal-footer .submit').addClass("bg_h");
+        });*/
+
+    /* - - - - - - - - - - - - */
+    /* - - - - MODALS - - - -  */
 
     $('#modalOrder').on('show.bs.modal', function (event) {
         //centerModal; /* вертикальное центрирование */
@@ -73,25 +111,25 @@ $(document).ready(function () {
 
     $('.modal-vertical-centered').on('show.bs.modal', centerModal);
 
-    $(window).on("resize", function () {
-        $('.modal-vertical-centered:visible').each(centerModal);
-    });
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+    /* - - - - - - - - - - - - - - - - HEADER - - - - - - - - - - - - - - - - */
 
     $('#header').animate({
         opacity: 1
     }, 1000);
 
-    $("html").click( function () {
-        var service = $('.service.active');
-
-        $(".inform").stop().fadeOut().removeClass("animated animDur fadeInRight");
-        closeFDescServ(service);
-    } );
+    /* - - - - - - - - - - - - */
 
     $('#header-carousel').on('slid.bs.carousel', function () {
         var slide = + $(this).find(".carousel-indicators li.active").attr("data-slide-to") + 1;
         $("#paginationNumber").text(slide);
-    })
+    });
+
+    $( ".carousel-indicators li" ).click( function () {
+        return false;
+    } );
+
+    /* - - - - - - - - - - - - */
 
     $(".lnk-inform").click( function () {
         if($(this).hasClass("active")) { return false; }
@@ -110,9 +148,63 @@ $(document).ready(function () {
         return false;
     } );
 
-    $( ".carousel-indicators li" ).click( function () {
-        return false;
-    } );
+    /* Анимация информов (появление и исчезновение) при фокусе */
+    /*$(".lnk-inform").focusin(function () {
+        var target = $(this).attr("href");
+        $(target).toggle();
+    });
+
+    $(".lnk-inform").focusout(function () {
+        var target = $(this).attr("href");
+        $(target).css("display", "none");
+    });*/
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /* - - - - - - - - - - - - - - - - ABOUT - - - - - - - - - - - - - - - - */
+
+    /* - - - - - - - - - - - - */
+
+    /* inview ones */
+    $('#about .title h3').one('inview', function (event) {
+
+        var Block = $(this);
+
+        // Show a smooth animation
+        Block.animate({
+            opacity: 1
+        }, 1000);
+
+        Block.addClass("animated fadeInRight");
+    });
+
+    $('#about .left .txt').one('inview', function (event) {
+
+        var Block = $(this);
+
+        // Show a smooth animation
+        Block.animate({
+            opacity: 1
+        }, 1000);
+
+        /*Block.addClass("animated fadeIn");*/
+    });
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+    /* - - - - - - - - - - - - - - - ADVANTAGES - - - - - - - - - - - - - - - */
+
+    /* - - - - - - - - - - - - */
+
+    /* inview  */
+    /*jQuery('#advantages .col').bind('inview', function (event, visible) {
+        if (visible) {
+            $(this).stop().addClass("animated lightSpeedIn"); // bounceInRight
+        } else {
+            $(this).stop().removeClass("animated lightSpeedIn");
+        }
+    });*/
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+    /* - - - - - - - - - - - - - - - SERVICES - - - - - - - - - - - - - - - */
 
     $('.teasers-paginators a').click(function () {
         if($(this).hasClass("active")) { return false; }
@@ -152,60 +244,13 @@ $(document).ready(function () {
         closeFDescServ(service);
     });
 
-    $(document).scroll( function () {
-        var currScrollPos = $(document).scrollTop(),
-            offset        = $('#about').offset(),
-            toBlock       = offset.top - currScrollPos,
-            heightStart   = 0,
-            heightFinish  = 256,
-            bottomIndex   = 0.48,
-            bottomStart   = 242,
-            bottomFinish  = -13;
-
-        if( toBlock <= 0 || currScrollPos/2 > 256) {
-            $('#about .title .line-v').css("height", 256);
-            $('#about .title .line-v').css("bottom", bottomFinish);
-            return;
-        }
-
-        $('#about .title .line-v').css("height", currScrollPos/2);
-        $('#about .title .line-v').css("bottom", bottomStart - currScrollPos * bottomIndex);
-        $("#about").attr("px", currScrollPos);
-    } );
-
-    /*$(".lnk-inform").focusin(function () {
-        var target = $(this).attr("href");
-        $(target).toggle();
-    });
-
-    $(".lnk-inform").focusout(function () {
-        var target = $(this).attr("href");
-        $(target).css("display", "none");
-    });*/
-
-    /* смена фона кнопок в форме заяве */
-    /*$('#modalOrder .modal-footer .phone')
-        .mouseenter(function () {
-            $('#modalOrder .modal-footer .submit').removeClass("bg_h");
-            $(this).addClass("bg_h");
-        })
-        .mouseleave(function () {
-            $(this).removeClass("bg_h");
-            $('#modalOrder .modal-footer .submit').addClass("bg_h");
-        });*/
+    /* - - - - - - - - - - - - */
 
     /* inview  */
-    jQuery('#advantages .col').bind('inview', function (event, visible) {
-        if (visible) {
-            $(this).stop().addClass("animated lightSpeedIn"); /*bounceInRight*/
-        } else {
-            $(this).stop().removeClass("animated lightSpeedIn");
-        }
-    });
-
+    /*
     jQuery('#services .service-tab').bind('inview', function (event, visible) {
         if (visible) {
-            $(this).stop().addClass("animated flipInX"); /*lightSpeedIn*/
+            $(this).stop().addClass("animated flipInX"); // lightSpeedIn
         } else {
             $(this).stop().removeClass("animated flipInX");
         }
@@ -226,14 +271,21 @@ $(document).ready(function () {
             $(this).stop().removeClass("animated lightSpeedIn");
         }
     });
+    */
 
-    jQuery('#footer .title').bind('inview', function (event, visible) {
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+    /* - - - - - - - - - - - - - - - - FOOTER - - - - - - - - - - - - - - - - */
+
+    /* - - - - - - - - - - - - */
+
+    /* inview  */
+    /*jQuery('#footer .title').bind('inview', function (event, visible) {
         if (visible) {
             $(this).stop().addClass("animated lightSpeedIn");
         } else {
             $(this).stop().removeClass("animated lightSpeedIn");
         }
-    });
+    });*/
 
     jQuery('#footer .form-order').bind('inview', function (event, visible) {
         if (visible) {
@@ -243,44 +295,51 @@ $(document).ready(function () {
         }
     });
 
-    /* inview ones */
-    $('#about .title h3').one('inview', function (event) {
-
-        var Block = $(this);
-
-        // Show a smooth animation
-        Block.animate({
-            opacity: 1
-        }, 1000);
-
-        Block.addClass("animated fadeInRight");
-    });
-
-    $('#about .left .txt').one('inview', function (event) {
-
-        var Block = $(this);
-
-        // Show a smooth animation
-        Block.animate({
-            opacity: 1
-        }, 1000);
-
-        /*Block.addClass("animated fadeIn");*/
-    });
-
 });
 
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - FUNCTIONS - - - - - - - - - - - - - - - */
+
+/* Анимирование вертикальной линии в блоке #about */
+function animVLineInAbout() {
+    var currScrollPos = $(document).scrollTop(),
+        offset        = $('#about').offset(),
+        toBlock       = offset.top - currScrollPos,
+        heightStart   = 0,
+        heightFinish  = '256px',
+        bottomIndex   = 0.48,
+        bottomStart   = 242,
+        bottomFinish  = -13,
+        currHeight    = $('#about .title .line-v').css("height"); /* Узнаём для того, чтобы полосочка только увеличивалась */
+
+    if( currHeight == heightFinish ) { return; }
+
+    if( toBlock <= 0 || currScrollPos/2 > heightFinish ) {
+        $('#about .title .line-v').css("height", heightFinish);
+        $('#about .title .line-v').css("bottom", bottomFinish);
+        return;
+    }
+
+    $('#about .title .line-v').css("height", currScrollPos/2);
+    $('#about .title .line-v').css("bottom", bottomStart - currScrollPos * bottomIndex);
+    $("#about").attr("px", currScrollPos);
+};
+
+/* Проверка на видимость элемента */
 function checkingVisible(elem) {
     var res = $(elem).is(":visible");
 
     return res;
-}
+};
 
+/* Закрытие "подробнее" услуг (деактивация активных элементов ) */
 function closeFDescServ(service) {
     service.stop().removeClass("active").fadeOut(500);
     $('.service-tab.active').stop().removeClass('active').find('.blackout').stop().removeClass('rotateBlackout');
-}
+};
 
+/* Центрирование модального окна BT */
 function centerModal() {
     $(this).css('display', 'block');
     var $dialog = $(this).find(".modal-dialog");
@@ -288,8 +347,9 @@ function centerModal() {
     var offsetLeft = (getPageSize()[2] - $dialog.width()) / 2;
     $dialog.css("margin-top", offset);
     $dialog.css("margin-left", offsetLeft); // Добавил выравнивание по горизонтали, т.к. на iPhone не выравнивалось
-}
+};
 
+/* Валидация формы */
 function validate(target) {
 
     /*var name, tel;
@@ -343,8 +403,9 @@ function validate(target) {
     }
 
     return false;
-}
+};
 
+/* Ajax отправка формы */
 function ajax(ob) {
     var msg;
     var processor;
@@ -413,51 +474,9 @@ function ajax(ob) {
     });
 
     return false;
-}
+};
 
-/* create social networking pop-ups*/
-/* Убрано со страницы */
-/*(function () {
-    // link selector and pop-up window size
-    var Config = {
-        Link: "a.share",
-        Width: 500,
-        Height: 500
-    };
-
-    // add handler links
-    var slink = document.querySelectorAll(Config.Link);
-    for (var a = 0; a < slink.length; a++) {
-        slink[a].onclick = PopupHandler;
-    }
-
-    // create popup
-    function PopupHandler(e) {
-        e = (e ? e : window.event);
-
-        var t = e.currentTarget;
-
-        var
-            px = Math.floor(((screen.availWidth || 1024) - Config.Width) / 2),
-            py = Math.floor(((screen.availHeight || 700) - Config.Height) / 2);
-
-        // open popup
-        var popup = window.open(t.href, "social",
-            "width=" + Config.Width + ",height=" + Config.Height +
-            ",left=" + px + ",top=" + py +
-            ",location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1");
-        if (popup) {
-            popup.focus();
-            if (e.preventDefault) e.preventDefault();
-            e.returnValue = false;
-        }
-
-        return !!popup;
-    }
-
-}());*/
-
-// Кроссбраузерное получение размеров окна на JS
+/* Кроссбраузерное получение размеров окна на JS */
 function getPageSize() {
     var xScroll, yScroll;
 
@@ -502,4 +521,46 @@ function getPageSize() {
     }
 
     return [pageWidth, pageHeight, windowWidth, windowHeight];
-}
+};
+
+/* create social networking pop-ups*/
+/* Убрано со страницы */
+/*(function () {
+    // link selector and pop-up window size
+    var Config = {
+        Link: "a.share",
+        Width: 500,
+        Height: 500
+    };
+
+    // add handler links
+    var slink = document.querySelectorAll(Config.Link);
+    for (var a = 0; a < slink.length; a++) {
+        slink[a].onclick = PopupHandler;
+    }
+
+    // create popup
+    function PopupHandler(e) {
+        e = (e ? e : window.event);
+
+        var t = e.currentTarget;
+
+        var
+            px = Math.floor(((screen.availWidth || 1024) - Config.Width) / 2),
+            py = Math.floor(((screen.availHeight || 700) - Config.Height) / 2);
+
+        // open popup
+        var popup = window.open(t.href, "social",
+            "width=" + Config.Width + ",height=" + Config.Height +
+            ",left=" + px + ",top=" + py +
+            ",location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1");
+        if (popup) {
+            popup.focus();
+            if (e.preventDefault) e.preventDefault();
+            e.returnValue = false;
+        }
+
+        return !!popup;
+    }
+
+}());*/

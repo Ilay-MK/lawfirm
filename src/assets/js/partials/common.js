@@ -335,7 +335,7 @@ $(document).ready(function () {
     });*/
 
     /* inview ones */
-    jQuery('#footer .title h3').one('inview', function (event) {
+    /*jQuery('#footer .title h3').one('inview', function (event) {
         var Block = $(this);
 
         // Show a smooth animation
@@ -344,9 +344,9 @@ $(document).ready(function () {
         }, 1000);
 
         Block.addClass("animated fadeInLeft");
-    });
+    });*/
 
-    jQuery('#footer .form-order').one('inview', function (event) {
+    jQuery('#placeInFooter').one('inview', function (event) {
         var Block = $(this);
 
         // Show a smooth animation

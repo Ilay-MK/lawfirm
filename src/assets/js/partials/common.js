@@ -27,7 +27,7 @@ $(document).ready(function () {
     $("html").click( function () {
         var service = $('.service.active');
 
-        $(".inform").stop().fadeOut().removeClass("animated animDur fadeInRight");
+        $(".inform").stop().fadeOut().removeClass("animated animDur fadeInRight_inform");
         closeFDescServ(service);
     } );
 
@@ -139,9 +139,9 @@ $(document).ready(function () {
         var target = $(this).attr("href");
 
         /*$(".inform").stop().css("display", "none").removeClass("animated animDur fadeInRight"); */
-        $(".inform").stop().fadeOut().removeClass("animated animDur fadeInRight"); /* Одно окно одновременно */
+        $(".inform").stop().fadeOut().removeClass("animated animDur fadeInRight_inform"); /* Одно окно одновременно */
 
-        $(target).addClass("animated animDur fadeInRight").fadeIn();
+        $(target).addClass("animated animDur fadeInRight_inform").fadeIn();
 
         return false;
     } );
@@ -217,7 +217,7 @@ $(document).ready(function () {
     $('.teasers-paginators a').click(function () {
         if($(this).hasClass("active")) { return false; }
 
-        $('.teaser').css("opacity", "1");
+        /*$('.teaser').css("opacity", "1");*/
 
         var target = $(this).attr("href");
 
@@ -291,7 +291,7 @@ $(document).ready(function () {
     */
 
     /* inview ones */
-    $('#services .title h3').one('inview', function (event) {
+    /*$('#services .title h3').one('inview', function (event) {
          var Block = $(this);
 
         // Show a smooth animation
@@ -300,9 +300,9 @@ $(document).ready(function () {
         }, 1000);
 
         Block.addClass("animated fadeInLeft");
-    });
+    });*/
 
-    $('#services .teasers.active .teaser').one('inview', function (event) {
+    /*$('#services .teasers.active .teaser').one('inview', function (event) {
         var Block = $(this);
 
         // Show a smooth animation
@@ -310,7 +310,7 @@ $(document).ready(function () {
             opacity: 1
         }, 1000);
 
-    });
+    });*/
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
     /* - - - - - - - - - - - - - - - - FOOTER - - - - - - - - - - - - - - - - */

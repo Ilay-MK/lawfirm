@@ -6,6 +6,28 @@
         padding-bottom: 58px;
     }
 
+    .close {
+        @extend %transition300ease;
+        @extend %selection-focus-none;
+        color: rgba(0,0,0, 0.3);
+        font-size: 40px;
+        font-weight: 100;
+        margin-top: -8px;
+        margin-right: -6px;
+
+        &:link, &:visited, &:hover, &:active, &:focus, &:active:focus {
+            @extend %selection-focus-none;
+        }
+
+        &:hover {
+            color: rgba(0,0,0, 0.5);
+        }
+
+        span {
+            padding: 0px 10px;
+        }
+    }
+
     &-dialog {
         max-width: 517px; /* 512px */
 

@@ -122,7 +122,7 @@ button, .btn {
         @extend %transition300ease;
         border: 1px solid map-get($colors, "c_b");
         border-radius: 0;
-        box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.3);
+        /*box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.3);*/
         outline: 0px solid transparent;
         outline: none;
         padding: 14px 41px 13px 42px;

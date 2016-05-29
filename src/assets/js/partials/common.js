@@ -369,7 +369,7 @@ function hideScrollLink() {
         toBlock       = +offset.top - currScrollPos,
         object        = $('#scroll-link');
 
-    console.log(toBlock);
+    /*console.log(toBlock);*/
 
     if(toBlock <= 10 ) {
         object.fadeOut();

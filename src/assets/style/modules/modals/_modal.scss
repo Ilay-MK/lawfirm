@@ -2,8 +2,12 @@
 
 .modal {
 
+    &-body {
+        padding-bottom: 58px;
+    }
+
     &-dialog {
-        max-width: 512px;
+        max-width: 517px; /* 512px */
 
         .modal-header {
 
@@ -33,8 +37,8 @@
         color: map-get($colors, "c_b");
         font-size: 20px;
         letter-spacing: 2px;
-        line-height: 36px;
-        margin-left: 55px;
+        line-height: 1.8;
+        margin: 42px 0px 32px 55px;
         text-transform: uppercase;
     }
 }

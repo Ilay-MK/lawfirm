@@ -22,8 +22,10 @@ textarea {
     .form-control {
 
         &-main {
+            background-color: rgba(0,0,0, 0.01);
             border: 1px solid map-get($colors, "c_dgo");
             border-radius: 0;
+            box-shadow: inset 2px 2px 6px rgba(0,0,0, .11);
             color: map-get($colors, "c_dgo");
             display: inline-block;
             font-family: 'PT Sans', sans-serif;
@@ -38,6 +40,7 @@ textarea {
             &:focus {
                 /*@extend %selection-focus;*/
                 @extend %selection-focus-none;
+                box-shadow: inset 2px 2px 6px rgba(0,0,0, .11);
             }
         }
     }
@@ -119,6 +122,7 @@ button, .btn {
         @extend %transition300ease;
         border: 1px solid map-get($colors, "c_b");
         border-radius: 0;
+        box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.3);
         outline: 0px solid transparent;
         outline: none;
         padding: 14px 41px 13px 42px;

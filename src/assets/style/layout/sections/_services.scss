@@ -42,7 +42,7 @@
     .service-tab {
         @extend %bg-cover;
         @extend %transition300ease;
-        box-shadow: 2px 2px 8px 0 rgba(0,0,0, 0.27);
+        box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.32);
         cursor: pointer;
         font-family: 'PT Serif', serif;
         overflow: hidden;
@@ -196,7 +196,7 @@
 
     .bg-white {
         background-color: #fff;
-        box-shadow: 2px 2px 8px 0 rgba(0,0,0, 0.27);
+        box-shadow: 3px 2px 8px 0 rgba(0, 0, 0, 0.12);
         overflow: hidden;
         padding: 45px 41px 19px;
         position: relative;

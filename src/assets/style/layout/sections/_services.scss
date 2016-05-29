@@ -194,7 +194,7 @@
         }
     }
 
-    .bg-white {
+    .bg-white {/*height 606px;*/
         background-color: #fff;
         box-shadow: 3px 2px 8px 0 rgba(0, 0, 0, 0.12);
         overflow: hidden;
@@ -231,11 +231,12 @@
         display: none;
         z-index: 15;
 
-        /*&#teas-page {
-            &-1 {
-                display: block;
+        /* TEMP */
+        &#teas-page {
+            &-3, &-4 {
+                visibility: hidden;
             }
-        }*/
+        }
 
         &.active {
             display: block;

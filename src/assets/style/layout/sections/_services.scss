@@ -264,13 +264,20 @@
 
             .more, .more:link, .more:visited, .more:hover, .more:active, .more:focus {
                 background-color: transparent;
-                color: map-get($colors, "c_b");
                 font-size: 12px;
                 line-height: 14px;
                 letter-spacing: 0;
                 margin-right: 21px;
                 padding: 0;
                 text-decoration: none;
+            }
+
+            .more {
+                color: rgba(179,151,120, 0.6);
+
+                &:hover {
+                    color: map-get($colors, "c_b");
+                }
             }
 
             .line {

@@ -245,6 +245,13 @@ $(document).ready(function () {
         return false;
     });
 
+    $('.teaser a.more').click( function () {
+        var service = $( $(this).data('target') );
+        service.stop().addClass("active").fadeIn(500);
+
+        return false;
+    } );
+
     $('.service').click(function () {
         return false;
     });

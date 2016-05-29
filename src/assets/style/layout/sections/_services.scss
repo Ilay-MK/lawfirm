@@ -396,5 +396,16 @@
             width: 37px; /*22px*/
 
         }
+
+        .bottom {
+            bottom: 15px;
+            left: 41px;
+            position: absolute;
+            right: 40px;
+
+            p {
+                height: 40px;
+            }
+        }
     }
 }

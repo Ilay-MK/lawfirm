@@ -365,7 +365,8 @@
         }
 
         ul {
-            list-style-image: url(../img/services/ul.png);
+            /*list-style-image: url(../img/services/ul.png);*/
+            list-style-type: none;
             margin: 16px 0 11px;
             padding-left: 0;
 
@@ -373,6 +374,12 @@
                 color: map-get($colors, "c_dgo");
                 font-size: 14px;
                 line-height: 20px;
+                position: relative;
+
+                .stls {
+                    left: -9px;
+                    position: absolute;
+                }
             }
         }
 
@@ -384,6 +391,7 @@
         }
 
         .servReturn {
+            @extend %transition300ease;
             background-image: url(../img/services/arrow@2x.png);
             background-origin: content-box;
             background-position: 100% 50%;
@@ -391,11 +399,15 @@
             background-repeat: no-repeat;
             cursor: pointer;
             height: 31px; /*11px*/
+            opacity: 0.8;
             margin-left: auto;
             margin-top: 14px;
             padding: 10px 5px 10px 10px;
             width: 37px; /*22px*/
 
+            &:hover {
+                opacity: 1;
+            }
         }
 
         .bottom {

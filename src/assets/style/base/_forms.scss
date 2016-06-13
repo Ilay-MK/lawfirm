@@ -22,7 +22,7 @@ textarea {
     .form-control {
 
         &-main {
-            background-color: rgba(0,0,0, 0.01);
+            /*background-color: rgba(0,0,0, 0.01);*/
             border: 1px solid map-get($colors, "c_dgo");
             border-radius: 0;
             box-shadow: inset 2px 2px 6px rgba(0,0,0, .11);

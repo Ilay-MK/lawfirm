@@ -52,8 +52,21 @@
             margin: 0 55px;
 
             .btn {
+
                 &-main, &-main:link, &-main:visited, &-main:hover, &-main:active, &-main:focus {
                     background-color: map-get($colors, "c_b");
+                    letter-spacing: .8px;
+                }
+
+                &:hover {
+                    background-color: transparent;
+                    background: none;
+                    color: map-get($colors, "c_b");
+                }
+
+                &:active {
+                    background-color: map-get($colors, "c_b");
+                    color: map-get($colors, "c_w");
                 }
             }
         }

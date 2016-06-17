@@ -22,6 +22,8 @@ $(document).ready(function () {
         animVLineInAbout();
         /*animVLineInAboutOther();*/
         hideScrollLink();
+        
+        parallax_bg($('.service-tab'));
     } );
 
     $("html").click( function () {
@@ -362,6 +364,28 @@ $(document).ready(function () {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - - - FUNCTIONS - - - - - - - - - - - - - - - */
+
+//Parallax effect background
+function parallax_bg(parallaxBg) {
+    if (getPageSize()[2] < 768) {
+        return;
+    }
+    var currScrollPos = +$(document).scrollTop(),
+        offsetFromTop = parallaxBg.offset(),
+        currToBlock   = +offsetFromTop.top - currScrollPos,
+        maxOffsetAnim = +70,
+        hOffset       = currToBlock/6, /*currToBlock/4*/
+        unit          = "px";
+
+    console.log(currToBlock);
+
+    if ( hOffset > maxOffsetAnim )  { hOffset = maxOffsetAnim; unit = "px"; }
+    if ( hOffset < -maxOffsetAnim ) { hOffset = -maxOffsetAnim; unit = "px"; }
+
+    console.log(hOffset);
+
+    parallaxBg.css('top', hOffset + unit);
+}
 
 function hideScrollLink() {
     var currScrollPos = $(document).scrollTop(),

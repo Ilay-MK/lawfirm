@@ -1,14 +1,24 @@
 <?php>
+    error_reporting(-1);
+    header('Content-Type: text/html; charset= utf-8');
+
     $error = false;
+
+    $name = $phone = $note = "";
 
     if (!empty($_POST["bsName"])) {
         $name = substr(htmlspecialchars(trim($_POST["bsName"])), 0, 50);
 	}
+    else { $error = true; }
 
     if (!empty($_POST["bsPhone"])) {
         $phone = substr(htmlspecialchars(trim($_POST["bsPhone"])), 0, 50);
 	}
     else { $error = true; }
+
+    if (!empty($_POST["bsNote"])) {
+        $note = htmlspecialchars(trim($_POST["bsNote"]));
+	}
 
     /*if (!empty($_POST["bsEmail"])) {
         $email = substr(htmlspecialchars(trim($_POST["bsEmail"])), 0, 255);
@@ -26,7 +36,7 @@
         $sitename = "jur.com";
 
         $pagetitle = "Новая заявка с сайта \"$sitename\"";
-        $message = "Имя: $name \nТелефон: $phone\nКакую услугу: $whichService";
+        $message = "Имя: $name \nТелефон: $phone\nЗаметка: $note\nКуда кликнул: $whichService";
         mail($recepient, $pagetitle, $message, "Content-type: text/plain; charset=\"utf-8\"\n From: $recepient");
 
 	} else {

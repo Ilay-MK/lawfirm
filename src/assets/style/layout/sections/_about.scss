@@ -2,17 +2,46 @@
 
 #about {
     background-color: map-get($colors, "c_w");
-height: 574px; /*TEMP*/
+    height: 574px; /*TEMP*/
+    position: relative;
+
+    #scroll-link {
+        height: 18px;
+        cursor: pointer;
+        left: calc(50% - 18px);
+        position: absolute;
+        top: 28px;
+        width: 18px;
+        z-index: 99;
+
+        -webkit-animation-duration: 3s;
+        animation-duration: 3s;
+
+        .scrlnk {
+            height: 12px; /* 9px */
+            position: relative;
+            overflow: hidden;
+
+            .arrow {
+                border: solid 1px #b3977b;
+                bottom: 3px;
+                height: 18px;
+                position: absolute;
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                width: 18px; /* 9px */
+
+                &:first-child {
+                    margin-bottom: 3px;
+                }
+            }
+        }
+    }
 
     .title {
 
         h3 {
-            color: map-get($colors, "c_b");
-            font-size: 20px;
-            letter-spacing: 2px;
-            line-height: 36px;
             margin: 32px 0 13px 96px;
-            text-transform: uppercase;
         }
     }
 
@@ -42,16 +71,18 @@ height: 574px; /*TEMP*/
 
         .line-v {
             bottom: -13px; /*0*/
+            height: 0; /* для анимации */
             left: 55px;
             position: absolute;
         }
 
         h3 {
-
+            opacity: 0;
         }
 
         .txt {
-            margin-top: 100px;
+            opacity: 0;
+            margin-top: 97px;
         }
     }
 }

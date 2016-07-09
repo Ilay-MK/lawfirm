@@ -1,7 +1,113 @@
 @charset "UTF-8";
 
+input, textarea {
+    @extend %transition300ease;
+}
+
 input {
 
+}
+
+textarea {
+    overflow-x: hidden;
+}
+
+.form-group {
+    position: relative;
+
+    &-main {
+        margin-bottom: 28px;
+    }
+
+    .form-control {
+
+        &-main {
+            /*background-color: rgba(0,0,0, 0.01);*/
+            border: 1px solid map-get($colors, "c_dgo");
+            border-radius: 0;
+            box-shadow: inset 2px 2px 6px rgba(0,0,0, .11);
+            color: map-get($colors, "c_dgo");
+            display: inline-block;
+            font-family: 'PT Sans', sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 20px;
+            height: auto;
+            padding: 15px 20px 15px;
+
+            &:focus {
+                /*@extend %selection-focus;*/
+                @extend %selection-focus-none;
+                box-shadow: inset 2px 2px 6px rgba(0,0,0, .11);
+            }
+        }
+    }
+
+    .form-control-feedback {
+        &-icon, &-message-error, &-message-success {
+            @extend %transition300ease;
+            /*display: none;*/
+            opacity: 0;
+            position: absolute;
+            /*transition: All 700ms ease;*/
+        }
+
+        &-icon {
+            @extend %bg-cover;
+            background-image: url(../img/validate/tick@2x.png);
+            height: 13px;
+            right: -30px; /* -43px */
+            top: calc(50% - 6.5px);
+            width: 16px;
+        }
+
+        &-message-error, &-message-success {
+            bottom: -24px;
+            color: map-get($colors, "c_r");
+            font-family: 'PT Sans', sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 20px;
+            right: 7px;
+        }
+        &-message-success {
+            color: #3c763d;
+        }
+    }
+
+    &.has {
+        &-error {
+            .form-control-feedback {
+                &-icon, &-message-error  {
+                    /*display: block;*/
+                    opacity: 1;
+                }
+                &-icon {
+                    background-image: url(../img/validate/error@2x.png);
+                }
+                &-message-error {
+
+                }
+            }
+        }
+
+        &-success {
+            .form-control-feedback {
+                &-icon {
+                    /*display: block;*/
+                    opacity: 1;
+                }
+                &-message-error {
+                    /*display: none;*/
+                    opacity: 0;
+                }
+            }
+        }
+    }
 }
 
 button, .btn {
@@ -11,26 +117,40 @@ button, .btn {
 
 .btn {
 
-    &-main, &-main:link, &-main:visited , &-main:hover, &-main:active, &-main:focus {
+    &-main {
         @extend %font-links;
+        @extend %transition300ease;
         border: 1px solid map-get($colors, "c_b");
         border-radius: 0;
-        padding: 14px 41px 13px 42px;
-        width: 189px;
-    }
-
-    &:hover {
-        background-color: map-get($colors, "c_bh");
-    }
-
-    &:active {
-        background-color: map-get($colors, "c_b");
-        box-shadow: none;
-    }
-
-    &:focus {
+        /*box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.3);*/
         outline: 0px solid transparent;
         outline: none;
+        padding: 14px 41px 13px 42px;
+        width: 189px;
+
+        &:link, &:visited, &:hover, &:active, &:focus, &:focus:active {
+            @extend %font-links;
+            border: 1px solid map-get($colors, "c_b");
+            border-radius: 0;
+            outline: 0px solid transparent;
+            outline: none;
+            padding: 14px 41px 13px 42px;
+            width: 189px;
+        }
+
+        &:hover {
+            background-color: map-get($colors, "c_bh");
+        }
+
+        &:active {
+            background-color: map-get($colors, "c_b");
+            box-shadow: none;
+        }
+
+        &:focus {
+            outline: 0px solid transparent;
+            outline: none;
+        }
     }
 }
 

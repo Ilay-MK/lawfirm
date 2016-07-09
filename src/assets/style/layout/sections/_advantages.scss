@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
 #advantages {
-    padding: 60px 0 0 0;
+    padding: 59px 0 0px 0;
     position: relative;
+    overflow: hidden;
 
     &-bg {
         background-color: #fbfbfc;
@@ -14,7 +15,7 @@
     }
 
     .content {
-        padding: 53px 0 53px 33px;
+        padding: 55px 0 52px 33px;
 
         .col {
 
@@ -53,7 +54,7 @@
                 }
 
                 .line {
-                    margin: 1px 19px 0 14px;
+                    margin: 1px 20px 0 12px;
                 }
 
                 .desc {
@@ -67,20 +68,36 @@
             }
 
             &.col-2 {
-                margin: 24px 0 0 73px;
+                margin: 23px 0 0 73px;
+
+                .number {
+                    margin-left: -1px;
+                }
 
                 .line {
-                    margin: 16px 0 25px;
+                    margin: 16px 0 26px;
+                }
+
+                .desc {
+                    margin-left: -1px;
                 }
             }
 
             &.col-3 {
-                margin-right: -14px;
-                margin-top: 9px;
+                margin-right: -10px;
+                margin-top: 8px;
                 text-align: right;
 
+                .number {
+                    margin-right: -2px;
+                }
+
                 .line {
-                    margin: 16px 0 25px auto;
+                    margin: 16px 0 26px auto;
+                }
+
+                .desc {
+                    margin-right: -1px;
                 }
             }
 
@@ -92,11 +109,11 @@
                 .line-v {
                     bottom: 79px; /*47px*/
                     position: absolute;
-                    right: 23px;
+                    right: 17px;
                 }
 
                 .desc {
-                    margin: 0 57px 20px 0;
+                    margin: 0 65px 20px 0;
 
                     p {
 
@@ -105,6 +122,7 @@
 
                 .number {
                     margin-top: 52px;
+                    margin-right: -6px;
                 }
             }
         }

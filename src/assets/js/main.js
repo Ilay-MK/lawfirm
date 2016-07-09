@@ -12,6 +12,8 @@
 
 //= ../../../bower_components/protonet/jquery.inview/jquery.inview.min.js
 
+//= ../../../bower_components/jquery.maskedinput/dist/jquery.maskedinput.min.js
+
 /*//= ../assets/libs/fancybox/jquery.fancybox.pack.js*/
 
 $(function(){

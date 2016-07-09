@@ -2,22 +2,36 @@
 
 /* Custom */
 @include placeholder {
+    color: map-get($colors, "c_dgo");
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
     opacity: 1;
     text-overflow: ellipsis;
     text-indent: 0px;
     transition: text-indent 0.3s ease;
 }
 
-@include plhdr(":focus") {
-    text-indent: 500px;
+/*@include plhdr(":focus") {
+    text-indent: 700px;
     transition: text-indent 0.3s ease;
-}
+}*/
 
 * {
     @include box-sizing (border-box);
     &:before, &:after {
         @include box-sizing (border-box);
     }
+}
+
+html, body  {
+    min-width: 1200px;
+}
+.container {
+    min-width: 1170px;
 }
 
 html {
@@ -94,7 +108,7 @@ h6 {
     font-weight: 400;
 }
 
-section.page section {
+section {
     /*padding: 100px 0;*/
     padding: 93px 0;
 }
@@ -121,4 +135,8 @@ img::selection {
 img::-moz-selection {
     color: #fff;
     background: transparent;
+}
+
+:focus {
+   /* @extend %selection-focus;*/
 }

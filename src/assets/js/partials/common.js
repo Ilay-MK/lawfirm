@@ -372,15 +372,16 @@ function parallax_bg(parallaxBg) {
     }
     var currScrollPos = +$(document).scrollTop(),
         offsetFromTop = parallaxBg.offset(),
-        currToBlock   = +offsetFromTop.top - currScrollPos,
-        maxOffsetAnim = +70,
+        currToBlock   = +offsetFromTop.top - currScrollPos - 200,
+        maxOffsetAnim = +20,
+        maxOffsetAnimP = +40,
         hOffset       = currToBlock/6, /*currToBlock/4*/
         unit          = "px";
 
     console.log(currToBlock);
 
     if ( hOffset > maxOffsetAnim )  { hOffset = maxOffsetAnim; unit = "px"; }
-    if ( hOffset < -maxOffsetAnim ) { hOffset = -maxOffsetAnim; unit = "px"; }
+    if ( hOffset < -maxOffsetAnim ) { hOffset = -maxOffsetAnimP; unit = "px"; }
 
     console.log(hOffset);
 

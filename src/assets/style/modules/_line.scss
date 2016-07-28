@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.line {
+    background-color: map-get($colors, "c_b");
+    height: 1px;
+    width: auto;
+
+    &-1 {
+        width: 82px;
+    }
+
+    &-2 {
+        width: 132px;
+    }
+
+    &-3 {
+        width: 159px;
+    }
+
+    &-4 {
+        width: 256px;
+    }
+
+    &-v {
+        background-color: map-get($colors, "c_b");
+        height: auto;
+        width: 1px;
+
+        &-1 {
+            height: 82px;
+        }
+
+        &-2 {
+            height: 132px;
+        }
+
+        &-3 {
+            height: 159px;
+        }
+
+        &-4 {
+            height: 256px;
+        }
+    }
+}

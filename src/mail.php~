@@ -1,4 +1,4 @@
-<?php 
+<?php>
     error_reporting(-1);
     header('Content-Type: text/html; charset= utf-8');
 
@@ -39,8 +39,8 @@
 	}
 
  	if (!$error) {
-        $recepient = "ancientkonung@gmail.com, MiKrob09@gmail.com"; /* "MiKrob09@gmail.com" */
-        $sitename = "belpravo.org";
+        $recepient = "MiKrob09@gmail.com"; /* "MiKrob09@gmail.com" */
+        $sitename = "jur.com";
 
         $pagetitle = "Новая заявка с сайта \"$sitename\"";
         $message = "Имя: $name \nТелефон: $phone\nЗаметка: $note\n\nКуда кликнул: $whichService $utm_sourceSTR $utm_termSTR";

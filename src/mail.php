@@ -20,12 +20,19 @@
         $note = htmlspecialchars(trim($_POST["bsNote"]));
 	}
 
-    /*if (!empty($_POST["bsEmail"])) {
-        $email = substr(htmlspecialchars(trim($_POST["bsEmail"])), 0, 255);
-	}
+    /**/
+    $utm_sourceSTR = "";
+    $utm_termSTR   = "";
 
-    if(empty($phone) && empty($email)) { $error = true; }*/
+    if (!empty($_POST["utm_source"])) {
+        $utm_source    = htmlspecialchars(trim($_POST["utm_source"]));
+        $utm_sourceSTR = "\n\nutm_source: $utm_source;";
+    }
 
+    if (!empty($_POST["utm_term"])) {
+        $utm_term    = htmlspecialchars(trim($_POST["utm_term"]));
+        $utm_termSTR = "\n\nutm_term: $utm_term;";
+    }
 
     if (!empty($_POST["whichService"])) {
         $whichService = substr(htmlspecialchars(trim($_POST["whichService"])), 0, 50);
@@ -33,10 +40,10 @@
 
  	if (!$error) {
         $recepient = "MiKrob09@gmail.com"; /* "MiKrob09@gmail.com" */
-        $sitename = "jur.com";
+        $sitename = "belpravo.org";
 
         $pagetitle = "Новая заявка с сайта \"$sitename\"";
-        $message = "Имя: $name \nТелефон: $phone\nЗаметка: $note\nКуда кликнул: $whichService";
+        $message = "Имя: $name \nТелефон: $phone\nЗаметка: $note\n\nКуда кликнул: $whichService $utm_sourceSTR $utm_termSTR";
         mail($recepient, $pagetitle, $message, "Content-type: text/plain; charset=\"utf-8\"\n From: $recepient");
 
 	} else {

@@ -614,6 +614,8 @@ function ajax(ob) {
             $(ob).find('.has-feedback').removeClass('has-success');
         }, 1000);
 
+	yaCounter38725895.reachGoal('ORDER'); /* for Y. target */
+
     });
 
     return false;

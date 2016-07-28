@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.blackout {
+    /*background-color: rgba(9, 6, 60, 0.4);*/
+    background-color: rgba(6, 11, 52, 0.43);
+    /*background-image: url(../img/blackout.png);*/ /*img для кроссбраузерности, браузеры не поддерживающие rgba*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}

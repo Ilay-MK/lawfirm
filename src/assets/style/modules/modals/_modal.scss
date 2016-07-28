@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+.modal {
+
+    &-content {
+        border-radius: 1px;
+    }
+
+    &-body {
+        padding-bottom: 58px;
+    }
+
+    .close {
+        @extend %transition300ease;
+        @extend %selection-focus-none;
+        color: rgba(0,0,0, 0.3);
+        font-size: 40px;
+        font-weight: 100;
+        margin-top: -8px;
+        margin-right: -6px;
+
+        &:link, &:visited, &:hover, &:active, &:focus, &:active:focus {
+            @extend %selection-focus-none;
+        }
+
+        &:hover {
+            color: rgba(0,0,0, 0.5);
+        }
+
+        span {
+            padding: 0px 10px;
+        }
+    }
+
+    &-dialog {
+        max-width: 517px; /* 512px */
+
+        .modal-header {
+
+            .close {
+                outline: 0px solid transparent;
+                outline: none;
+
+                &:link, &:visited, &:hover, &:active, &:focus {
+                    outline: 0px solid transparent;
+                    outline: none;
+                }
+            }
+        }
+
+        .form-order {
+            margin: 0 55px;
+
+            .btn {
+
+                &-main, &-main:link, &-main:visited, &-main:hover, &-main:active, &-main:focus {
+                    background-color: map-get($colors, "c_b");
+                    letter-spacing: .8px;
+                }
+
+                &:hover {
+                    background-color: transparent;
+                    background: none;
+                    color: map-get($colors, "c_b");
+                }
+
+                &:active {
+                    background-color: map-get($colors, "c_b");
+                    color: map-get($colors, "c_w");
+                }
+            }
+        }
+    }
+
+    &-title {
+        color: map-get($colors, "c_b");
+        font-size: 20px;
+        letter-spacing: 2px;
+        line-height: 1.8;
+        margin: 42px 0px 32px 55px;
+        text-transform: uppercase;
+    }
+}

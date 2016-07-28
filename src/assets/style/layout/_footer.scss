@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+#footer {
+    padding: 95px 0 164px;
+    overflow: hidden;
+
+    .container {
+        padding: 0;
+    }
+
+    .title {
+        margin-bottom: 34px;
+
+        h2 {
+            margin-top: 0;
+            transform: rotate(-90deg);
+            /*transform-origin: 26px 100%;*/ /* 100% 100% */
+            transform-origin: 41px 100%;
+        }
+
+        h3 {
+            /*opacity: 0;*/
+        }
+
+        .line-v {
+            left: 17px;
+            position: relative;
+            top: -110px;
+        }
+    }
+
+    .contacts {
+        margin-top: 106px;
+
+        .ln {
+            margin: 21px 0;
+
+            h5 {
+                display: inline-block;
+                font-family: 'PT Serif', serif;
+                font-size: 14px;
+                font-weight: 700;
+                margin: 0;
+                width: 93px;
+            }
+
+            p {
+                color: map-get($colors, "c_dgo");
+                display: inline-block;
+                font-family: 'PT Sans', sans-serif;
+                font-size: 14px;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 400;
+                line-height: 20px;
+                margin: 0;
+            }
+        }
+    }
+
+    .txt {
+        color: map-get($colors, "c_dgo");
+        margin-top: 51px;
+
+        p {
+            font-family: 'PT Sans', sans-serif;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 20px;
+        }
+    }
+
+    #placeInFooter {
+        opacity: 0;
+    }
+
+    form {
+        textarea {
+            height: 110px;
+            margin-bottom: -5px;
+        }
+
+        .btn {
+
+            &-main, &-main:link, &-main:visited, &-main:hover, &-main:active, &-main:focus {
+                background-color: map-get($colors, "c_b");
+                letter-spacing: .8px;
+            }
+
+            &:hover {
+                background-color: transparent;
+                background: none;
+                color: map-get($colors, "c_b");
+            }
+
+            &:active {
+                background-color: map-get($colors, "c_b");
+                color: map-get($colors, "c_w");
+            }
+        }
+    }
+}

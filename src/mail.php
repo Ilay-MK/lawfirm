@@ -39,7 +39,7 @@
 	}
 
  	if (!$error) {
-        $recepient = "MiKrob09@gmail.com"; /* "MiKrob09@gmail.com" */
+        $recepient = "ancientkonung@gmail.com, MiKrob09@gmail.com"; /* "MiKrob09@gmail.com" */
         $sitename = "belpravo.org";
 
         $pagetitle = "Новая заявка с сайта \"$sitename\"";

@@ -1,3 +1,8 @@
+<?php 
+    if( isset( $_GET["utm_source"] ) ) { $utm_source = $_GET["utm_source"]; }
+    if( isset( $_GET["utm_term"] ) ) { $utm_term   = $_GET["utm_term"];   }
+?>
+
 <div class="form-order" role="form">
     <form action="mail.php" class="order" id="formOrder" method="post">
 
@@ -36,6 +41,8 @@
         </div>
 
         <input type="hidden" name="whichService" id="whichService" class="form-control" value="Подвал">
+        <input type="hidden" name="utm_source" id="utm_source" class="form-control" value="<?=$utm_source?>">
+        <input type="hidden" name="utm_term" id="utm_term" class="form-control" value="<?=$utm_term?>">
 
         <button type="submit" class="btn btn-main submit" role="button" data-submit="#formOrder">Консультация</button>
 
